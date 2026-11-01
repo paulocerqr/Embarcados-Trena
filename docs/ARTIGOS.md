@@ -15,7 +15,7 @@ Esta é uma seleção comentada, não oito fichamentos finais de leitura integra
 | T3 | Rejeição de interferência | Ecos de outros sensores e validação | Integrante 3 |
 | T4 | Alternativa ao tempo de voo | Comparação de técnicas e justificativa do recorte simples | Integrante 4 |
 | A1 | Instrumento de distância com microcontrolador | Aplicação mais próxima da trena proposta | Integrante 1 |
-| A2 | Medições em investigação de cena | Uso de um medidor e registro de distâncias | Integrante 2 |
+| A2 | Integração de ultrassom e inércia | Navegação indoor com correção de deriva | Integrante 2 |
 | A3 | Instrumento de medição de altura | Uso de distância para medir uma dimensão | Integrante 3 |
 | A4 | Localização em ambiente interno | Aplicação ampliada de medidas de distância | Integrante 4 |
 
@@ -23,6 +23,7 @@ Começar por T1 e A1. T3, T4 e A4 são mais avançados e servem à discussão bi
 
 ## 2. Tecnologias que viabilizam a medição
 
+<a id="t1"></a>
 ### T1 — Princípios e métodos de medição
 
 **Referência:** QIU, Zurong; LU, Yaohuan; QIU, Zhen. Review of Ultrasonic Ranging Methods and Their Current Challenges. *Micromachines*, v. 13, n. 4, art. 520, 2022.
@@ -37,6 +38,7 @@ Começar por T1 e A1. T3, T4 e A4 são mais avançados e servem à discussão bi
 
 **Aplicação no relatório:** fundamentar o percurso de ida e volta e as limitações do sensor. Não atribuir ao módulo simples o desempenho de todas as técnicas revisadas.
 
+<a id="t2"></a>
 ### T2 — Erros provocados pelo ambiente
 
 **Referência:** RUDYK, Andrii et al. Influence of Environmental Factors on the Accuracy of the Ultrasonic Rangefinder in a Mobile Robotic Technical Vision System. *Electronics*, v. 14, n. 7, art. 1393, 2025.
@@ -51,6 +53,7 @@ Começar por T1 e A1. T3, T4 e A4 são mais avançados e servem à discussão bi
 
 **Aplicação no relatório:** justificar registro das condições dos ensaios e cautela com velocidade do som fixa. Não exige adicionar sensores ambientais ao escopo mínimo.
 
+<a id="t3"></a>
 ### T3 — Interferência entre sensores
 
 **Referência:** SHIN, Seungin; KIM, Min Hyun; CHOI, Seibum B. Ultrasonic Distance Measurement Method With Crosstalk Rejection at High Measurement Rate. *IEEE Transactions on Instrumentation and Measurement*, v. 68, n. 4, p. 972–979, 2019.
@@ -64,6 +67,7 @@ Começar por T1 e A1. T3, T4 e A4 são mais avançados e servem à discussão bi
 
 **Aplicação no relatório:** explicar por que nem todo retorno detectado é confiável. A codificação proposta não será implementada no módulo didático; o protótipo deve registrar essa limitação.
 
+<a id="t4"></a>
 ### T4 — Uma alternativa ao tempo de voo
 
 **Referência:** CAROTENUTO, Riccardo; PEZZIMENTI, Fortunato; DELLA CORTE, Francesco G.; IERO, Demetrio; MERENDA, Massimo. Ranging with Frequency Dependent Ultrasound Air Attenuation. *Sensors*, v. 21, n. 15, art. 4963, 2021.
@@ -79,6 +83,7 @@ Começar por T1 e A1. T3, T4 e A4 são mais avançados e servem à discussão bi
 
 ## 3. Aplicações de instrumentos e sistemas relacionados
 
+<a id="a1"></a>
 ### A1 — Instrumento de distância com microcontrolador e display
 
 **Referência:** TITLEE, Rokhsana; BHUYAN, Muhibul Haque. Design, Implementation and Testing of Ultrasonic High Precision Contactless Distance Measurement System Using Microcontroller. *SEU Journal of Science and Engineering*, v. 10, n. 2, dez. 2016.
@@ -91,19 +96,21 @@ Começar por T1 e A1. T3, T4 e A4 são mais avançados e servem à discussão bi
 
 **Aplicação no relatório:** é a entrada mais próxima do fluxo sensor → processamento → display da nossa trena. A ESP32 substitui o controlador; desempenho e código não devem ser transplantados sem análise.
 
-### A2 — Medir e registrar distâncias em uma cena
+<a id="a2"></a>
+### A2 — Integração de ultrassom e inércia para navegação indoor
 
-**Referência:** SUNGKANGWAN, Thosaporn; PRAIHIRUNKIT, Pairoa. Smartphone Application with an Ultrasonic Sensor for Measuring and Recording Distance in Crime Scene Investigation. *The Journal of King Mongkut’s University of Technology North Bangkok*, v. 32, n. 1, p. 177–188, 2022.
+**Referência:** TOKARZ, Krzysztof; CZEKALSKI, Piotr; SIECZKOWSKI, Wojciech. Integration of ultrasonic and inertial methods in indoor navigation system. *Theoretical and Applied Informatics*, v. 26, n. 3–4, p. 107–117, 2014.
 
-- DOI: [10.14416/j.kmutnb.2021.05.039](https://doi.org/10.14416/j.kmutnb.2021.05.039).
-- [Página da revista](https://ph01.tci-thaijo.org/index.php/kmutnb-journal/article/view/247198).
-- [Link de download disponibilizado pela revista](https://ph01.tci-thaijo.org/index.php/kmutnb-journal/article/download/247198/167963).
-- Idioma: tailandês, com título e resumo em inglês. A página e o resumo foram consultados; o download oficial não abriu nesta pesquisa. Ano da referência segue o fascículo de 2022, apesar das datas de publicação online anteriores.
+- DOI: [10.20904/2634107](https://doi.org/10.20904/2634107).
+- [Página da revista](https://journals.pan.pl/dlibra/publication/135561/edition/118520/content).
+- [PDF oficial](https://journals.pan.pl/Content/118520/PDF/Integration%20of%20ultrasonic.pdf).
+- Idioma: inglês. PDF aberto; texto integral consultado.
 
-**Resumo inicial:** O trabalho integra um sensor ultrassônico a um aplicativo para medir e registrar distâncias em cenários simulados de investigação. Também avalia o uso da interface por profissionais.
+**Resumo inicial:** O artigo integra posicionamento ultrassônico e inercial para navegação indoor. Beacons ultrassônicos corrigem a deriva de um pedômetro baseado em sensor MARG; quando o receptor sai da cobertura ultrassônica, o sistema inercial assume. Os autores descrevem a arquitetura híbrida e um teste em trajetória de 2×5 m, discutindo erros de orientação e posicionamento.
 
-**Aplicação no relatório:** mostra que apresentar, registrar e interpretar a distância é parte da utilidade do instrumento. Nosso escopo não inclui aplicativo nem finalidade pericial. A leitura do texto completo exigirá tradução cuidadosa.
+**Aplicação no relatório:** demonstra o uso de medições ultrassônicas de distância em navegação e localização, não em uma trena. Não há evidência de adoção no VTUSD3; a reprodução proposta não implementa beacons nem fusão inercial.
 
+<a id="a3"></a>
 ### A3 — Medição de altura a partir da distância
 
 **Referência:** WONGKE, Thunyarat; AWIKUNPRASERT, Panatsada; AWIKUNPRASERT, Chayanon. Digital height meter using ultrasonic sensor. *Journal of Associated Medical Sciences*, v. 50, n. 3, p. 435–441, 2017.
@@ -117,6 +124,7 @@ Começar por T1 e A1. T3, T4 e A4 são mais avançados e servem à discussão bi
 
 **Aplicação no relatório:** relacionar medida de distância, referência geométrica e validação experimental. A trena não será apresentada como instrumento clínico; não se deve repetir uma equação extraída do texto sem conferir unidades e coerência física.
 
+<a id="a4"></a>
 ### A4 — Uso de distâncias para localização interna
 
 **Referência:** CHEW, Moi Tin; ALAM, Fakhrul; LEGG, Mathew; SEN GUPTA, Gourab. Accurate Ultrasound Indoor Localization Using Spring-Relaxation Technique. *Electronics*, v. 10, n. 11, art. 1290, 2021.
@@ -135,7 +143,7 @@ Começar por T1 e A1. T3, T4 e A4 são mais avançados e servem à discussão bi
 
 1. Confirmar o recorte de aplicação do produto/categoria exigido pelo professor. A1 é o mais próximo de um instrumento equivalente; A4 é mais distante.
 2. Cada integrante abre os textos completos de suas duas entradas. Resolver os acessos pendentes antes de tratá-las como bibliografia final.
-3. Para A2 e A3, usar tradução com conferência das figuras, unidades e método. Se o idioma impedir a compreensão, substituir o artigo; não entregar um resumo que ninguém do grupo consiga explicar.
+3. Para A3, usar tradução com conferência das figuras, unidades e método. Se o idioma impedir a compreensão, substituir o artigo; não entregar um resumo que ninguém do grupo consiga explicar.
 4. Registrar problema, método, resultado principal, limitações e relação com o projeto. Os resumos iniciais deste arquivo não substituem essa leitura.
 5. Anotar páginas/seções que sustentam cada afirmação. Completar metadados e incluir data real de acesso na versão final.
 6. Verificar os links dos PDFs no navegador da equipe. Usar o acesso institucional quando necessário; não fazer upload de PDFs ao repositório.
@@ -143,6 +151,6 @@ Começar por T1 e A1. T3, T4 e A4 são mais avançados e servem à discussão bi
 
 ## 5. Situação da pesquisa
 
-Há oito referências de revistas identificadas e relacionadas à medição ultrassônica, com links de texto/PDF. A seleção demonstra disponibilidade de bibliografia, mas **não está encerrada**: restam leitura integral, resolução de acessos, decisão sobre os dois textos em tailandês e confirmação do recorte de aplicação. A existência de uma referência não comprova sozinha sua adequação ao critério do professor.
+Há oito referências de revistas identificadas e relacionadas à medição ultrassônica, com links de texto/PDF. A seleção demonstra disponibilidade de bibliografia, mas **não está encerrada**: restam leitura integral, resolução de acessos, decisão sobre o texto em tailandês (A3) e confirmação do recorte de aplicação. A existência de uma referência não comprova sozinha sua adequação ao critério do professor.
 
-Alternativa a pesquisar se for necessário substituir aplicações: [Room measurement tool combining ultrasonic and inertial sensors in smartphones](https://kyushu-u.elsevierpure.com/en/publications/room-measurement-tool-combining-ultrasonic-and-inertial-sensors-i/), de Kashimoto, Arakawa e Yasumoto, *International Journal of Ad Hoc and Ubiquitous Computing*, 31(3), 189–199, 2019, DOI [10.1504/IJAHUC.2019.100779](https://doi.org/10.1504/IJAHUC.2019.100779). O resumo é próximo da medição de ambientes, mas não foi localizado um PDF independente do artigo nesta consulta; uma tese ou versão de congresso não deve substituí-lo silenciosamente.
+**A2 definido:** Tokarz, Czekalski e Sieczkowski (2014), com DOI e PDF aberto. A alternativa anterior (Kashimoto et al.) foi descartada por falta de PDF independente.

@@ -54,37 +54,37 @@
 
 ### 3.2 Análise técnica detalhada: listagem de características
 
-Cada linha descreve **o VTUSD3 original**. Preencher informação, situação e fonte; incluir página/seção do manual quando possível. Se houver vários componentes ou interfaces, acrescentar linhas.
+O VTUSD3 pode ser descrito funcionalmente em blocos: transdutor ultrassônico para emissão e recepção do eco; circuito de excitação e condicionamento do sinal; controlador embarcado dedicado; LCD com backlight; teclas de função; laser de mira; memória interna para cinco conjuntos de resultados; e alimentação por bateria de 9 V. O laser não participa da medição: o manual é explícito que a distância é obtida por ultrassom [R2](#r2).
+
+O controlador executa a medição, os cálculos de área/volume/soma, o armazenamento dos cinco resultados, o auto-desligamento e a interface. O manual não divulga o modelo do controlador, a arquitetura, o clock, a RAM/Flash, o SO ou a versão de firmware; também não há evidência de rádio, OTA, criptografia ou secure boot. A existência de firmware e de um controlador dedicado é inferida das funções documentadas; o restante é registrado como "não identificado" nas tabelas abaixo.
 
 #### 3.2.1 Unidade de processamento
 
-O manual do VTUSD3 documenta as funções executadas, mas não identifica o controlador. A existência de um **controlador embarcado** é evidenciada pela medição, pelo cálculo de área/volume, pela memória de resultados e pelo auto-desligamento descritos no manual [R2](#r2); o fabricante e o modelo do chip não são divulgados. Não foram localizados service manual, esquema elétrico, teardown ou registro de certificação que revelem o componente (ver método em 3.2.11.1).
+Os itens abaixo registram a ausência de fonte, não a inexistência do componente.
 
 | Item do enunciado | Característica | Descrição no produto | Fonte |
 | --- | --- | --- | --- |
-| 1.1 | Fabricante e modelo do MCU/MPU | **Não identificado.** O manual não informa o chip; a presença de um controlador é inferida das funções documentadas, sem atribuir modelo. | [R2](#r2), seções 3–5; [R7](#r7) |
-| 1.2 | Arquitetura e número de núcleos | **Não identificado.** Sem datasheet ou teardown, não é possível afirmar arquitetura ou número de núcleos. | [R2](#r2); 3.2.11.1 |
-| 1.3 | Frequência de clock | **Não identificado.** Nenhuma fonte consultada divulga a frequência de operação. | [R2](#r2); 3.2.11.1 |
-| 1.4 | Coprocessadores e unidades dedicadas | **Não identificado.** Não há evidência documental de DSP, FPU, acelerador de IA ou co-processador de baixo consumo. | [R2](#r2); 3.2.11.1 |
-
-**Leitura correta:** a ausência de dados não significa que o produto não tenha MCU, memória ou firmware; significa que o fabricante não publicou essas informações e que não foi localizada documentação técnica independente do modelo exato. A ESP32 usada na proposta não descreve o hardware do VTUSD3.
+| 1.1 | Fabricante e modelo do MCU/MPU | **Não identificado.** O manual não informa o chip; a presença de um controlador é inferida das funções documentadas. | [R2](#r2), seções 3–5; [R7](#r7) |
+| 1.2 | Arquitetura e número de núcleos | **Não identificado.** Sem datasheet ou teardown. | [R2](#r2) |
+| 1.3 | Frequência de clock | **Não identificado.** Nenhuma fonte consultada informa o clock. | [R2](#r2) |
+| 1.4 | Coprocessadores e unidades dedicadas | **Não identificado.** Sem evidência de DSP, FPU ou acelerador. | [R2](#r2) |
 
 #### 3.2.2 Memória
 
 | Item do enunciado | Característica | Descrição no produto | Fonte |
 | --- | --- | --- | --- |
-| 2.1 | RAM: tipo e capacidade | **Não identificado.** O manual não informa RAM, tipo de memória volátil nem arquitetura do controlador. | [R2](#r2), seções 3–7; 3.2.11.1 |
-| 2.2 | ROM/Flash: tipo, capacidade e localização interna/externa | **Não identificado.** O produto executa firmware embarcado, mas o manual não divulga tipo, capacidade ou se a memória de programa é interna ao chip. | [R2](#r2), seções 3–7; 3.2.11.1 |
-| 2.3 | EEPROM separada ou embutida | **Não identificado.** O manual documenta **5 conjuntos de memória** para resultados (seção 5), mas não informa a tecnologia usada (EEPROM, Flash interna ou RAM com retenção). Não classificar como EEPROM sem fonte. | [R2](#r2), seção 5; 3.2.11.1 |
+| 2.1 | RAM: tipo e capacidade | **Não identificado.** O manual não informa RAM. | [R2](#r2) |
+| 2.2 | ROM/Flash: tipo, capacidade e localização interna/externa | **Não identificado.** Executa firmware, mas o manual não detalha tipo ou capacidade. | [R2](#r2) |
+| 2.3 | EEPROM separada ou embutida | **Não identificado.** Há 5 conjuntos de memória para resultados; a tecnologia não é divulgada. | [R2](#r2) |
 
-**Memória de resultados não é capacidade de RAM/Flash.** Os "5 conjuntos de memória" do manual descrevem quantas medições o usuário pode armazenar e recuperar, não a quantidade de RAM ou Flash do controlador. Também não foi localizada fonte que informe se esses valores sobrevivem à troca da bateria.
+Os "5 conjuntos de memória" são resultados armazenáveis, não a capacidade de RAM/Flash.
 
 #### 3.2.3 Sistema operacional
 
 | Item do enunciado | Característica | Descrição no produto | Fonte |
 | --- | --- | --- | --- |
-| 3.1 | GPOS, RTOS ou bare-metal | **Não identificado.** Não há evidência documental de GPOS ou RTOS. Para um instrumento dedicado, a hipótese mais provável é firmware bare-metal, mas isso é inferência, não fato documentado. | [R2](#r2), seções 3–7; 3.2.11.1 |
-| 3.2 | Versão/distribuição, quando identificável | **Não identificado.** Nenhuma versão de sistema operacional é divulgada; o manual não descreve menu de versão nem interface de diagnóstico. | [R2](#r2); 3.2.11.1 |
+| 3.1 | GPOS, RTOS ou bare-metal | **Não identificado.** Sem evidência de GPOS/RTOS; bare-metal é hipótese. | [R2](#r2) |
+| 3.2 | Versão/distribuição, quando identificável | **Não identificado.** Nenhuma versão divulgada. | [R2](#r2) |
 
 #### 3.2.4 Sensores e atuadores
 
@@ -130,45 +130,25 @@ O manual do VTUSD3 documenta as funções executadas, mas não identifica o cont
 
 | Item do enunciado | Característica | Descrição no produto | Fonte |
 | --- | --- | --- | --- |
-| 9.1 | Firmware e funções documentadas | **Firmware não identificado; funções documentadas.** O manual v03 descreve medição ultrassônica, cálculo de área/volume, soma, 5 memórias e auto-desligamento; a versão v02 e páginas de distribuidores citam também alarme para leituras incorretas [R7](#r7). Não informa versão, arquitetura ou mecanismo de gravação. | [R2](#r2), seções 4–6; [R7](#r7) |
-| 9.2 | Atualizações remotas/OTA | **Não documentado.** O manual não descreve porta de dados, rádio ou procedimento de atualização. Não afirmar que o produto "não pode" ser atualizado; registrar que não há evidência de OTA. | [R2](#r2), seções 3–7; 3.2.11.1 |
-
-**Firmware vs. funções.** As funções descritas no manual comprovam que existe software embarcado executando medição, cálculos e interface, mas não revelam o firmware, sua versão ou o processo de fabricação/gravação. A reprodução com ESP-IDF é uma escolha do grupo, não uma descrição do firmware original.
+| 9.1 | Firmware e funções documentadas | **Firmware não identificado.** O manual descreve as funções, mas não a versão ou o mecanismo de gravação. | [R2](#r2), seções 4–6; [R7](#r7) |
+| 9.2 | Atualizações remotas/OTA | **Não documentado.** Sem porta, rádio ou procedimento de atualização. | [R2](#r2) |
 
 #### 3.2.10 Unidade de proteção e segurança
 
 | Item do enunciado | Característica | Descrição no produto | Fonte |
 | --- | --- | --- | --- |
-| 10.1 | Criptografia e aceleradores | **Não identificado/não documentado.** Não há evidência de criptografia por hardware; o produto não tem comunicação de rede documentada. | [R2](#r2), seções 3–7; 3.2.11.1 |
-| 10.2 | HSM/Secure Element e armazenamento de credenciais | **Não identificado/não documentado.** Não há menção a elemento seguro, chaves ou credenciais. | [R2](#r2); 3.2.11.1 |
-| 10.3 | Secure boot e criptografia da Flash | **Não identificado/não documentado.** O manual não descreve proteção de firmware nem criptografia de memória. | [R2](#r2); 3.2.11.1 |
-| 10.4 | Autenticação, controle de acesso, TLS/VPN e outras proteções | **Não documentado.** O acesso é físico, por teclas; não há autenticação, contas, TLS/VPN ou atualização remota descritas. A ausência de menção não prova ausência de mecanismos internos. | [R2](#r2), seções 3–7 |
-
-**Cuidado com a inferência.** Um instrumento de medição sem rádio e sem porta de dados não precisa de autenticação de usuário, mas isso não permite concluir que o firmware não tenha proteções internas (por exemplo, readout protection). O relatório registra a lacuna documental, não uma auditoria de segurança do produto.
+| 10.1 | Criptografia e aceleradores | **Não identificado/não documentado.** Sem evidência de criptografia por hardware. | [R2](#r2) |
+| 10.2 | HSM/Secure Element e armazenamento de credenciais | **Não identificado/não documentado.** Sem menção a elemento seguro. | [R2](#r2) |
+| 10.3 | Secure boot e criptografia da Flash | **Não identificado/não documentado.** Sem menção a secure boot. | [R2](#r2) |
+| 10.4 | Autenticação, controle de acesso, TLS/VPN e outras proteções | **Não documentado.** Acesso físico por teclas; sem autenticação ou rede descrita. | [R2](#r2) |
 
 #### 3.2.11 Armazenamento externo
 
 | Item do enunciado | Característica | Descrição no produto | Fonte |
 | --- | --- | --- | --- |
-| 11.1 | SD, NAND, eMMC, HDD/SSD ou outro armazenamento externo | **Não documentado.** O manual não descreve slot, cartão ou mídia externa; a única forma de armazenamento citada são os 5 conjuntos de memória de resultados. Não confundir memória interna de resultados com armazenamento externo. | [R2](#r2), seções 3 e 5 |
+| 11.1 | SD, NAND, eMMC, HDD/SSD ou outro armazenamento externo | **Não documentado.** Sem slot ou mídia externa; só as 5 memórias internas. | [R2](#r2) |
 
-#### 3.2.11.1 Método de pesquisa sobre os componentes internos
-
-A pesquisa foi realizada em 31/10/2026 e 01/11/2026, com as seguintes frentes:
-
-1. **Documentação do fabricante:** página do produto [R1](#r1) e manual [R2](#r2), incluindo as versões em português, inglês, espanhol, francês, alemão, neerlandês, polonês e italiano. Nenhuma versão traz esquema elétrico, lista de materiais, diagrama de blocos ou identificação do controlador.
-2. **Assistência técnica e material de serviço:** buscas por *service manual*, *schematic*, *spare parts* e *repair* não localizaram documentação do VTUSD3.
-3. **Certificação:** o manual não documenta rádio ou interface sem fio; coerentemente, não foi localizado registro no [FCC ID](https://fccid.io/) para o modelo. A consulta a bases de certificação não revela o MCU e, sem transmissor, não seria o caminho para identificá-lo.
-4. **Desmontagens:** buscas em inglês, português, espanhol, neerlandês, alemão e polonês por *teardown*, *desmontagem*, *desmontaje*, *reparatie*, *zerlegen* e *demontage* não localizaram desmontagem pública do **VTUSD3**. Desmontagens de outros medidores da categoria não foram usadas como prova do hardware do VTUSD3.
-5. **Patentes:** não foi localizada patente atribuída ao VTUSD3 que descrevesse sua eletrônica.
-
-**Conclusão metodológica:** os itens 3.2.1 a 3.2.3, 3.2.9, 3.2.10 e 3.2.11 são registrados como **não identificados ou não documentados**, e não como "inexistentes". O produto claramente executa firmware e possui memória, mas o fabricante não publica qual componente usa.
-
-**O que seria necessário para identificar (trabalho futuro, não realizado):** obter uma unidade, abrir sem danificar, fotografar a placa, ler as marcações dos chips, identificar os barramentos e, se houver pads de depuração, tentar SWD/JTAG ou leitura de flash. Isso exigiria autorização, equipamento e uma unidade física; não faz parte do escopo teórico deste Trabalho 2. Nenhum dado foi inventado para preencher as lacunas.
-
-**Limite da comparação com produtos similares:** os manuais dos cinco similares também não informam MCU, memória ou SO; a comparação em 3.5 confronta funções e especificações declaradas, não arquitetura interna. Não transportar para o VTUSD3 o que foi observado em outro aparelho.
-
-O registro completo das consultas, com URLs, datas e resultados, está em [docs/pesquisa-interna.md](docs/pesquisa-interna.md).
+**Nota.** O manual e as fontes públicas consultadas não informam MCU, memória, SO, firmware ou segurança; os itens acima são registrados como “não identificado”, não como inexistentes. O CEM DM-01, similar em 3.5, tem especificações equivalentes e sugere uma plataforma OEM comum, mas isso não confirma o hardware do VTUSD3.
 
 #### 3.2.12 Interface com o usuário (UI)
 
@@ -344,7 +324,7 @@ As verificações matemáticas e de estados serão automatizadas quando o firmwa
 
 Esta seção organiza **oito artigos distintos de revistas científicas**: quatro sobre tecnologias e quatro sobre uso de instrumentos de medição de distância. As referências completas e a situação de acesso estão no [arquivo bibliográfico de apoio](docs/ARTIGOS.md). Nenhum PDF foi enviado ao repositório.
 
-**Situação da redação:** os resumos são preliminares, baseados no conteúdo acessível; não representam leitura integral dos oito artigos. As aplicações demonstram uso de instrumentos da categoria, não do VTUSD3 especificamente. A3 usa laser, enquanto o VTUSD3 mede por ultrassom. Resolver acessos, registrar consultas em bases acadêmicas e confirmar esse recorte antes de consolidar a entrega. A2 e A3 ainda não tiveram seus PDFs obtidos.
+**Situação da redação:** os resumos são preliminares, baseados no conteúdo acessível; não representam leitura integral dos oito artigos. As aplicações demonstram uso de instrumentos da categoria, não do VTUSD3 especificamente. A3 usa laser, enquanto o VTUSD3 mede por ultrassom. Resolver acessos, registrar consultas em bases acadêmicas e confirmar esse recorte antes de consolidar a entrega. A2 foi substituído por artigo com PDF aberto; A3 ainda não teve o PDF obtido.
 
 #### 3.4.1 Artigos sobre tecnologias
 
@@ -380,11 +360,11 @@ Esta seção organiza **oito artigos distintos de revistas científicas**: quatr
 - **DOI e PDF:** [10.14416/j.kmutnb.2021.05.039](https://doi.org/10.14416/j.kmutnb.2021.05.039) · [download da revista](https://ph01.tci-thaijo.org/index.php/kmutnb-journal/article/download/247198/167963).
 - **Resumo e aplicação:** utiliza medição ultrassônica e aplicativo para documentar distâncias de uma cena simulada. Demonstra finalidade concreta da saída de um instrumento embarcado; nosso protótipo não inclui aplicativo. Texto em tailandês, com resumo em inglês; leitura integral pendente.
 
-##### A2 — Levantamento de cômodos
+##### A2 — Integração de ultrassom e inércia para navegação indoor
 
-- **Referência:** Kashimoto, Arakawa e Yasumoto, *International Journal of Ad Hoc and Ubiquitous Computing*, 31(3), 189–199, 2019. [Referência completa](docs/ARTIGOS.md#a2).
-- **DOI e rota de PDF:** [10.1504/IJAHUC.2019.100779](https://doi.org/10.1504/IJAHUC.2019.100779) · [editora, acesso não confirmado](https://www.inderscienceonline.com/doi/pdf/10.1504/IJAHUC.2019.100779).
-- **Resumo e aplicação:** combina distâncias ultrassônicas às paredes com sensores inerciais para obter dimensões e forma de cômodos. Demonstra o uso das leituras em levantamento espacial. Texto integral não obtido; a reprodução não terá geração automática de plantas.
+- **Referência:** Tokarz, Czekalski e Sieczkowski, *Theoretical and Applied Informatics*, 26(3–4), 107–117, 2014. [Referência completa](docs/ARTIGOS.md#a2).
+- **DOI e PDF:** [10.20904/2634107](https://doi.org/10.20904/2634107) · [PDF oficial](https://journals.pan.pl/Content/118520/PDF/Integration%20of%20ultrasonic.pdf).
+- **Resumo e aplicação:** integra posicionamento ultrassônico e inercial para navegação indoor: beacons ultrassônicos corrigem a deriva de um pedômetro/MARG e, quando o receptor sai da cobertura, o sistema inercial assume. Os autores descrevem a arquitetura híbrida e um teste em trajetória de 2×5 m. É aplicação da medição ultrassônica de distância, não uma trena; não há evidência de uso no VTUSD3.
 
 ##### A3 — Dimensionamento de fachadas
 
