@@ -291,4 +291,4 @@ Passar à próxima etapa após verificar a anterior; isso facilita encontrar err
 
 [4] QIU, Zurong; LU, Yaohuan; QIU, Zhen. **Review of Ultrasonic Ranging Methods and Their Current Challenges**. *Micromachines*, v. 13, n. 4, art. 520, 2022. DOI: https://doi.org/10.3390/mi13040520. Página: https://www.mdpi.com/2072-666X/13/4/520. Texto integral: https://pmc.ncbi.nlm.nih.gov/articles/PMC9025471/. Ver a [seleção comentada](ARTIGOS.md) para as oito referências e pendências de leitura.
 
-[5] Enunciado e lista de componentes da disciplina: [Trabalho 2 — 2026/2](../README.md) e [Lista de Sensores](../Lista_de_Sensores.md).
+[5] Enunciado e lista de componentes da disciplina: [Trabalho 2 — 2026/2](../README.md) e [Lista de Sensores](https://gitlab.com/fse_fga/trabalhos-2026_2/trabalho-2-2026-2/-/blob/main/Lista_de_Sensores.md).
