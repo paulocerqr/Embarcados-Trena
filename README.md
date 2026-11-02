@@ -45,7 +45,7 @@ A escolha se justifica por quatro pontos principais:
 
 Abaixo estão a vista externa oficial do Velleman VTUSD3 e o diagrama de identificação dos seus 15 elementos físicos e de interface [R1, R2, p. 2].
 
-![Vista externa do Velleman VTUSD3](https://cdn.velleman.eu/images/products/0/vtusd3.jpg)
+![Vista externa do Velleman VTUSD3](assets/vtusd3.jpg)
 *Figura 1 — Vista externa frontal do medidor ultrassônico Velleman VTUSD3. Fonte: Velleman NV [R1].*
 
 ![Identificação externa do Velleman VTUSD3](assets/identificacao.png)
