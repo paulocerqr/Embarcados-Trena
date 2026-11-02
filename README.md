@@ -5,7 +5,7 @@
 **Situação:** relatório em elaboração; proposta de reprodução preenchida, demais seções a completar.  
 **Entrega indicada no enunciado:** 03/11/2026.
 
-> Estrutura baseada no [enunciado em red/README.md](../red/README.md). Substituir os campos `[PREENCHER]` durante a pesquisa. Para características não identificadas, registrar as fontes consultadas; usar “não se aplica” somente com justificativa. Uma informação da ESP32 não descreve automaticamente o produto comercial.
+> **Nota de edição:** substituir os campos `[PREENCHER]` durante a pesquisa. Para características não identificadas, registrar as fontes consultadas; usar “não se aplica” somente com justificativa. Uma informação da ESP32 não descreve automaticamente o produto comercial.
 
 ## Identificação do grupo
 
@@ -70,31 +70,37 @@ O controle interno executa quatro tarefas principais [R2, seções 4, 6 e 8]:
 
 ### 3.2 Análise técnica detalhada: listagem de características
 
-Cada linha descreve **o VTUSD3 original**. Preencher informação, situação e fonte; incluir página/seção do manual quando possível. Se houver vários componentes ou interfaces, acrescentar linhas.
+O VTUSD3 pode ser descrito funcionalmente em blocos: transdutor ultrassônico para emissão e recepção do eco; circuito de excitação e condicionamento do sinal; controlador embarcado dedicado; LCD com backlight; teclas de função; laser de mira; memória interna para cinco conjuntos de resultados; e alimentação por bateria de 9 V. O laser não participa da medição: o manual é explícito que a distância é obtida por ultrassom [R2](#r2).
+
+O controlador executa a medição, os cálculos de área/volume/soma, o armazenamento dos cinco resultados, o auto-desligamento e a interface. O manual não divulga o modelo do controlador, a arquitetura, o clock, a RAM/Flash, o SO ou a versão de firmware; também não há evidência de rádio, OTA, criptografia ou secure boot. A existência de firmware e de um controlador dedicado é inferida das funções documentadas; o restante é registrado como "não identificado" nas tabelas abaixo.
 
 #### 3.2.1 Unidade de processamento
 
+Os itens abaixo registram a ausência de fonte, não a inexistência do componente.
+
 | Item do enunciado | Característica | Descrição no produto | Fonte |
 | --- | --- | --- | --- |
-| 1.1 | Fabricante e modelo do MCU/MPU | [PREENCHER] | [PREENCHER] |
-| 1.2 | Arquitetura e número de núcleos | [PREENCHER] | [PREENCHER] |
-| 1.3 | Frequência de clock | [PREENCHER] | [PREENCHER] |
-| 1.4 | Coprocessadores e unidades dedicadas | [PREENCHER] | [PREENCHER] |
+| 1.1 | Fabricante e modelo do MCU/MPU | **Não identificado.** O manual não informa o chip; a presença de um controlador é inferida das funções documentadas. | [R2](#r2), seções 3–5; [R7](#r7) |
+| 1.2 | Arquitetura e número de núcleos | **Não identificado.** Sem datasheet ou teardown. | [R2](#r2) |
+| 1.3 | Frequência de clock | **Não identificado.** Nenhuma fonte consultada informa o clock. | [R2](#r2) |
+| 1.4 | Coprocessadores e unidades dedicadas | **Não identificado.** Sem evidência de DSP, FPU ou acelerador. | [R2](#r2) |
 
 #### 3.2.2 Memória
 
 | Item do enunciado | Característica | Descrição no produto | Fonte |
 | --- | --- | --- | --- |
-| 2.1 | RAM: tipo e capacidade | [PREENCHER] | [PREENCHER] |
-| 2.2 | ROM/Flash: tipo, capacidade e localização interna/externa | [PREENCHER] | [PREENCHER] |
-| 2.3 | EEPROM separada ou embutida | [PREENCHER] | [PREENCHER] |
+| 2.1 | RAM: tipo e capacidade | **Não identificado.** O manual não informa RAM. | [R2](#r2) |
+| 2.2 | ROM/Flash: tipo, capacidade e localização interna/externa | **Não identificado.** Executa firmware, mas o manual não detalha tipo ou capacidade. | [R2](#r2) |
+| 2.3 | EEPROM separada ou embutida | **Não identificado.** Há 5 conjuntos de memória para resultados; a tecnologia não é divulgada. | [R2](#r2) |
+
+Os "5 conjuntos de memória" são resultados armazenáveis, não a capacidade de RAM/Flash.
 
 #### 3.2.3 Sistema operacional
 
 | Item do enunciado | Característica | Descrição no produto | Fonte |
 | --- | --- | --- | --- |
-| 3.1 | GPOS, RTOS ou bare-metal | [PREENCHER] | [PREENCHER] |
-| 3.2 | Versão/distribuição, quando identificável | [PREENCHER] | [PREENCHER] |
+| 3.1 | GPOS, RTOS ou bare-metal | **Não identificado.** Sem evidência de GPOS/RTOS; bare-metal é hipótese. | [R2](#r2) |
+| 3.2 | Versão/distribuição, quando identificável | **Não identificado.** Nenhuma versão divulgada. | [R2](#r2) |
 
 #### 3.2.4 Sensores e atuadores
 
@@ -140,23 +146,25 @@ Cada linha descreve **o VTUSD3 original**. Preencher informação, situação e 
 
 | Item do enunciado | Característica | Descrição no produto | Fonte |
 | --- | --- | --- | --- |
-| 9.1 | Firmware e funções documentadas | [PREENCHER] | [PREENCHER] |
-| 9.2 | Atualizações remotas/OTA | [PREENCHER] | [PREENCHER] |
+| 9.1 | Firmware e funções documentadas | **Firmware não identificado.** O manual descreve as funções, mas não a versão ou o mecanismo de gravação. | [R2](#r2), seções 4–6; [R7](#r7) |
+| 9.2 | Atualizações remotas/OTA | **Não documentado.** Sem porta, rádio ou procedimento de atualização. | [R2](#r2) |
 
 #### 3.2.10 Unidade de proteção e segurança
 
 | Item do enunciado | Característica | Descrição no produto | Fonte |
 | --- | --- | --- | --- |
-| 10.1 | Criptografia e aceleradores | [PREENCHER] | [PREENCHER] |
-| 10.2 | HSM/Secure Element e armazenamento de credenciais | [PREENCHER] | [PREENCHER] |
-| 10.3 | Secure boot e criptografia da Flash | [PREENCHER] | [PREENCHER] |
-| 10.4 | Autenticação, controle de acesso, TLS/VPN e outras proteções | [PREENCHER] | [PREENCHER] |
+| 10.1 | Criptografia e aceleradores | **Não identificado/não documentado.** Sem evidência de criptografia por hardware. | [R2](#r2) |
+| 10.2 | HSM/Secure Element e armazenamento de credenciais | **Não identificado/não documentado.** Sem menção a elemento seguro. | [R2](#r2) |
+| 10.3 | Secure boot e criptografia da Flash | **Não identificado/não documentado.** Sem menção a secure boot. | [R2](#r2) |
+| 10.4 | Autenticação, controle de acesso, TLS/VPN e outras proteções | **Não documentado.** Acesso físico por teclas; sem autenticação ou rede descrita. | [R2](#r2) |
 
 #### 3.2.11 Armazenamento externo
 
 | Item do enunciado | Característica | Descrição no produto | Fonte |
 | --- | --- | --- | --- |
-| 11.1 | SD, NAND, eMMC, HDD/SSD ou outro armazenamento externo | [PREENCHER] | [PREENCHER] |
+| 11.1 | SD, NAND, eMMC, HDD/SSD ou outro armazenamento externo | **Não documentado.** Sem slot ou mídia externa; só as 5 memórias internas. | [R2](#r2) |
+
+**Nota.** O manual e as fontes públicas consultadas não informam MCU, memória, SO, firmware ou segurança; os itens acima são registrados como “não identificado”, não como inexistentes. O CEM DM-01, similar em 3.5, tem especificações equivalentes e sugere uma plataforma OEM comum, mas isso não confirma o hardware do VTUSD3.
 
 #### 3.2.12 Interface com o usuário (UI)
 
@@ -194,6 +202,8 @@ O recorte foi escolhido para uma equipe de quatro estudantes com pouca experiên
 | Apontador laser | Não previsto | Não reproduzida | Não é necessário à emissão e recepção do ultrassom |
 | Cálculo de área/volume e armazenamento de medidas | Apenas último resultado em RAM | Não reproduzidas as funções adicionais | Concentrar o trabalho no caminho sensor → processamento → interface |
 
+A função de alarme para leituras incorretas é citada na versão 02 do manual [R7](#r7); a versão 03 descreve o uso e as mensagens sem repetir a lista de características.
+
 O resultado deverá permanecer identificado como **última leitura** até a próxima solicitação. Durante uma nova tentativa, a tela mostrará “Medindo”; em caso de falha, substituirá o valor por uma mensagem, sem reapresentar a medida antiga como resultado atual.
 
 #### 3.3.2 Componentes e recursos equivalentes
@@ -213,7 +223,7 @@ O resultado deverá permanecer identificado como **última leitura** até a pró
 | Armazenamento externo | Não previsto | Nenhum cartão SD ou memória externa adicional | O histórico não faz parte da reprodução |
 | Interface com o usuário | Botão, OLED e buzzer ativo | Comando único, leitura em centímetros e avisos de sucesso/erro | Controlador do OLED, endereço I2C e acionamento do buzzer dependem dos módulos reais |
 
-**Disponibilidade:** a [lista da disciplina](../Lista_de_Sensores.md) contém “Sensor Ultrasom”, mas não especifica o modelo. Confirmar módulos, alimentação, níveis lógicos e componentes auxiliares antes de detalhar o circuito.
+**Disponibilidade:** a [lista da disciplina](https://gitlab.com/fse_fga/trabalhos-2026_2/trabalho-2-2026-2/-/blob/main/Lista_de_Sensores.md) contém “Sensor Ultrasom”, mas não especifica o modelo. Confirmar módulos, alimentação, níveis lógicos e componentes auxiliares antes de detalhar o circuito.
 
 Serão necessários uma placa, uma protoboard, um sensor, um botão, um display, um buzzer, cabo USB de dados, jumpers e resistores conforme a ligação. Para os ensaios, utilizar régua ou fita métrica e um alvo plano fixo. Nenhum número de GPIO será definido antes da identificação da placa e de seus pinos reservados.
 
@@ -328,33 +338,33 @@ As verificações matemáticas e de estados serão automatizadas quando o firmwa
 
 ### 3.4 Pesquisa bibliográfica e tecnológica
 
-Esta seção organiza **oito artigos distintos de revistas científicas**: quatro sobre tecnologias e quatro sobre uso de instrumentos de medição de distância. As referências completas e a situação de acesso estão no [arquivo bibliográfico de apoio](../TrenaUltrassonica/ARTIGOS.md). Nenhum PDF foi enviado ao repositório.
+Esta seção organiza **oito artigos distintos de revistas científicas**: quatro sobre tecnologias e quatro sobre uso de instrumentos de medição de distância. As referências completas e a situação de acesso estão no [arquivo bibliográfico de apoio](docs/ARTIGOS.md). Nenhum PDF foi enviado ao repositório.
 
-**Situação da redação:** os resumos são preliminares, baseados no conteúdo acessível; não representam leitura integral dos oito artigos. As aplicações demonstram uso de instrumentos da categoria, não do VTUSD3 especificamente. A3 usa laser, enquanto o VTUSD3 mede por ultrassom. Resolver acessos, registrar consultas em bases acadêmicas e confirmar esse recorte antes de consolidar a entrega. A2 e A3 ainda não tiveram seus PDFs obtidos.
+**Situação da redação:** os resumos são preliminares, baseados no conteúdo acessível; não representam leitura integral dos oito artigos. As aplicações demonstram uso de instrumentos da categoria, não do VTUSD3 especificamente. A3 usa laser, enquanto o VTUSD3 mede por ultrassom. Resolver acessos, registrar consultas em bases acadêmicas e confirmar esse recorte antes de consolidar a entrega. A2 foi substituído por artigo com PDF aberto; A3 ainda não teve o PDF obtido.
 
 #### 3.4.1 Artigos sobre tecnologias
 
 ##### T1 — Fundamentos da medição ultrassônica
 
-- **Referência:** Qiu, Lu e Qiu, *Micromachines*, 13(4), 520, 2022. [Referência completa](../TrenaUltrassonica/ARTIGOS.md#t1).
+- **Referência:** Qiu, Lu e Qiu, *Micromachines*, 13(4), 520, 2022. [Referência completa](docs/ARTIGOS.md#t1).
 - **DOI e PDF:** [10.3390/mi13040520](https://doi.org/10.3390/mi13040520) · [PDF publicado](https://researchonline.ljmu.ac.uk/id/eprint/18696/1/Review%20of%20Ultrasonic%20Ranging%20Methods%20and%20Their%20Current%20Challenges.pdf).
 - **Resumo e relação:** a revisão explica transdutores, detecção do eco e erros de medição. Fundamenta aquisição e cálculo embarcado da distância, sem comprovar os componentes internos do VTUSD3.
 
 ##### T2 — Influência das condições ambientais
 
-- **Referência:** Rudyk et al., *Electronics*, 14(7), 1393, 2025. [Referência completa](../TrenaUltrassonica/ARTIGOS.md#t2).
+- **Referência:** Rudyk et al., *Electronics*, 14(7), 1393, 2025. [Referência completa](docs/ARTIGOS.md#t2).
 - **DOI e PDF:** [10.3390/electronics14071393](https://doi.org/10.3390/electronics14071393) · [PDF oficial](https://www.mdpi.com/2079-9292/14/7/1393/pdf).
 - **Resumo e relação:** o estudo avalia efeitos ambientais na medição ultrassônica. Apoia a discussão da velocidade do som adotada no firmware e das condições dos ensaios. Leitura integral pendente por limitação de acesso automatizado.
 
 ##### T3 — Processamento de ecos e interferência
 
-- **Referência:** Shin, Kim e Choi, *IEEE Transactions on Instrumentation and Measurement*, 68(4), 972–979, 2019. [Referência completa](../TrenaUltrassonica/ARTIGOS.md#t3).
+- **Referência:** Shin, Kim e Choi, *IEEE Transactions on Instrumentation and Measurement*, 68(4), 972–979, 2019. [Referência completa](docs/ARTIGOS.md#t3).
 - **DOI e PDF:** [10.1109/TIM.2018.2863999](https://doi.org/10.1109/TIM.2018.2863999) · [PDF dos autores](https://acl.kaist.ac.kr/wp-content/uploads/2021/10/2018_TIM_SSI.pdf).
 - **Resumo e relação:** apresenta processamento e codificação para rejeitar interferência ultrassônica. Relaciona confiabilidade e custo computacional; não há evidência de adoção dessa técnica no VTUSD3, nem previsão de implementá-la na reprodução. Abertura integral do PDF pendente.
 
 ##### T4 — Integração entre sensor, temporizador e display
 
-- **Referência:** Titlee e Bhuyan, *SEU Journal of Science and Engineering*, 10(2), 6–11, 2016. [Referência completa](../TrenaUltrassonica/ARTIGOS.md#t4).
+- **Referência:** Titlee e Bhuyan, *SEU Journal of Science and Engineering*, 10(2), 6–11, 2016. [Referência completa](docs/ARTIGOS.md#t4).
 - **PDF original:** [artigo no domínio da universidade](https://old.seu.edu.bd/seujse/downloads/vol_10_no_2_dec_2016/02_Vol10No2Dec2016.pdf). DOI não identificado.
 - **Resumo e relação:** desenvolve um instrumento com PIC, HC-SR04 e LCD. A temporização do retorno viabiliza cálculo e apresentação da distância. É referência de arquitetura de medição, não evidência do controlador do produto comercial.
 
@@ -362,25 +372,25 @@ Esta seção organiza **oito artigos distintos de revistas científicas**: quatr
 
 ##### A1 — Registro de distâncias em investigação de cenas
 
-- **Referência:** Sungkangwan e Praihirunkit, *The Journal of KMUTNB*, 32(1), 177–188, 2022. [Referência completa](../TrenaUltrassonica/ARTIGOS.md#a1).
+- **Referência:** Sungkangwan e Praihirunkit, *The Journal of KMUTNB*, 32(1), 177–188, 2022. [Referência completa](docs/ARTIGOS.md#a1).
 - **DOI e PDF:** [10.14416/j.kmutnb.2021.05.039](https://doi.org/10.14416/j.kmutnb.2021.05.039) · [download da revista](https://ph01.tci-thaijo.org/index.php/kmutnb-journal/article/download/247198/167963).
 - **Resumo e aplicação:** utiliza medição ultrassônica e aplicativo para documentar distâncias de uma cena simulada. Demonstra finalidade concreta da saída de um instrumento embarcado; nosso protótipo não inclui aplicativo. Texto em tailandês, com resumo em inglês; leitura integral pendente.
 
-##### A2 — Levantamento de cômodos
+##### A2 — Integração de ultrassom e inércia para navegação indoor
 
-- **Referência:** Kashimoto, Arakawa e Yasumoto, *International Journal of Ad Hoc and Ubiquitous Computing*, 31(3), 189–199, 2019. [Referência completa](../TrenaUltrassonica/ARTIGOS.md#a2).
-- **DOI e rota de PDF:** [10.1504/IJAHUC.2019.100779](https://doi.org/10.1504/IJAHUC.2019.100779) · [editora, acesso não confirmado](https://www.inderscienceonline.com/doi/pdf/10.1504/IJAHUC.2019.100779).
-- **Resumo e aplicação:** combina distâncias ultrassônicas às paredes com sensores inerciais para obter dimensões e forma de cômodos. Demonstra o uso das leituras em levantamento espacial. Texto integral não obtido; a reprodução não terá geração automática de plantas.
+- **Referência:** Tokarz, Czekalski e Sieczkowski, *Theoretical and Applied Informatics*, 26(3–4), 107–117, 2014. [Referência completa](docs/ARTIGOS.md#a2).
+- **DOI e PDF:** [10.20904/2634107](https://doi.org/10.20904/2634107) · [PDF oficial](https://journals.pan.pl/Content/118520/PDF/Integration%20of%20ultrasonic.pdf).
+- **Resumo e aplicação:** integra posicionamento ultrassônico e inercial para navegação indoor: beacons ultrassônicos corrigem a deriva de um pedômetro/MARG e, quando o receptor sai da cobertura, o sistema inercial assume. Os autores descrevem a arquitetura híbrida e um teste em trajetória de 2×5 m. É aplicação da medição ultrassônica de distância, não uma trena; não há evidência de uso no VTUSD3.
 
 ##### A3 — Dimensionamento de fachadas
 
-- **Referência:** Ordóñez et al., *Automation in Construction*, 19(6), 742–749, 2010. [Referência completa](../TrenaUltrassonica/ARTIGOS.md#a3).
+- **Referência:** Ordóñez et al., *Automation in Construction*, 19(6), 742–749, 2010. [Referência completa](docs/ARTIGOS.md#a3).
 - **DOI e rota de PDF:** [10.1016/j.autcon.2010.03.002](https://doi.org/10.1016/j.autcon.2010.03.002) · [editora, pode exigir acesso institucional](https://www.sciencedirect.com/science/article/pii/S0926580510000464/pdfft).
 - **Resumo e aplicação:** usa câmera e Leica Disto Plus para dimensionar fachadas e aberturas. O medidor fornece distância ao processamento geométrico. A tecnologia é laser, diferente do VTUSD3; o caso sustenta uso da categoria funcional, sem equivalência de desempenho. Leitura integral pendente.
 
 ##### A4 — Levantamento da área de estabelecimentos
 
-- **Referência:** Yu et al., *International Journal of Environmental Research and Public Health*, 12(11), 14034–14042, 2015. [Referência e identificação do uso na seção 2.1](../TrenaUltrassonica/ARTIGOS.md#a4).
+- **Referência:** Yu et al., *International Journal of Environmental Research and Public Health*, 12(11), 14034–14042, 2015. [Referência e identificação do uso na seção 2.1](docs/ARTIGOS.md#a4).
 - **DOI e PDF:** [10.3390/ijerph121114034](https://doi.org/10.3390/ijerph121114034) · [PDF oficial](https://www.mdpi.com/1660-4601/12/11/14034/pdf).
 - **Resumo e aplicação:** emprega medidor ultrassônico comercial da Zircon no levantamento de área interna dos locais de um estudo ambiental. A trena fornece dados dimensionais, não mede partículas. O exemplo demonstra utilização de um instrumento da categoria sem descrever sua eletrônica; leitura integral pendente.
 
@@ -434,7 +444,7 @@ Listar aqui todas as fontes efetivamente utilizadas, inclusive as das imagens, c
 
 ### R1
 
-VELLEMAN. **VTUSD3: Ultrasonic Distance Meter + Laser**. Disponível em: https://www.velleman.eu/products/view/ultrasonic-distance-meter-laser-vtusd3/?id=372828&lang=en. Acesso em: [PREENCHER: data da consulta pelo grupo].
+VELLEMAN. **VTUSD3: Ultrasonic Distance Meter + Laser**. Disponível em: https://www.velleman.eu/products/view/ultrasonic-distance-meter-laser-vtusd3/?id=372828&lang=en. Consulta em: 01 nov. 2026. **Observação:** nessa data a página redirecionou para o aviso de indisponibilidade da loja Velleman; as especificações do produto foram conferidas no manual [R2](#r2) e em páginas de distribuidores. A referência é mantida para registro da página oficial, mas não deve ser usada sozinha como fonte de características técnicas.
 
 ### R2
 
@@ -455,6 +465,10 @@ ESPRESSIF SYSTEMS. **Inter-Integrated Circuit (I2C) — ESP-IDF Programming Guid
 ### R6
 
 ESPRESSIF SYSTEMS. **Remote Control Transceiver (RMT) — ESP-IDF Programming Guide, ESP32**. Disponível em: https://docs.espressif.com/projects/esp-idf/en/stable/esp32/api-reference/peripherals/rmt.html. Acesso em: 30 out. 2026. Recurso proposto para temporização, sujeito à compatibilidade da placa e do driver escolhidos.
+
+### R7
+
+VELLEMAN. **VTUSD3 — User manual, versão 02 (05 ago. 2014)**. Lista de características: display LCD com retroiluminação, unidades imperiais/métricas, cálculo de área e volume, 5 grupos de memória, ponteiro laser, desligamento automático/manual e alarme para leituras incorretas. Disponível em: https://usersmanualguide.com/velleman/accessories/vtusd3/user-manual/1vset. Consulta em: 01 nov. 2026. Usada apenas para a função de alarme, ausente na versão 03 do manual.
 
 ### P1
 
@@ -478,7 +492,7 @@ EXTECH. **DT100M — Laser Distance Meter**. Especificações e funções. Dispo
 
 ### Demais referências
 
-As referências acadêmicas completas T1–T4 e A1–A4 estão no [arquivo bibliográfico](../TrenaUltrassonica/ARTIGOS.md), parte desta documentação. Revisão da seleção em 31 out. 2026; as pendências de consulta integral estão registradas individualmente.
+As referências acadêmicas completas T1–T4 e A1–A4 estão no [arquivo bibliográfico](docs/ARTIGOS.md), parte desta documentação. Revisão da seleção em 31 out. 2026; as pendências de consulta integral estão registradas individualmente.
 
 [PREENCHER: outras fontes técnicas e referências das imagens, com identificadores próprios e datas de acesso. As fontes dos similares estão em P1–P5.]
 
