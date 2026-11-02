@@ -123,41 +123,49 @@ Os temporizadores de desligamento e a resposta às teclas não demonstram a exis
 
 | Item do enunciado | Característica | Descrição no produto | Fonte |
 | --- | --- | --- | --- |
-| 4.1 | Sensores: variável, fabricante e modelo, quando identificáveis | Transdutor ultrassônico para emissão e recepção do eco. Fabricante e modelo não identificados. | [R1](#r1), [R2](#r2) |
-| 4.2 | Atuadores: função, fabricante e modelo, quando identificáveis | Diodo laser vermelho de 650 nm (apontador classe II, < 1 mW), display LCD e componente sonoro (buzzer) para avisos. Modelos não identificados. | [R2](#r2), seção 8; [R7](#r7) |
-| 4.3 | Conexão de cada sensor/atuador com o MCU/MPU | **Não identificado.** O manual não apresenta diagrama elétrico ou pinagem interna. | [R2](#r2) |
+| 4.1 | Sensores: variável, fabricante e modelo, quando identificáveis | Sensoriamento ultrassônico para medir distância até uma superfície. Modelo, fabricante, frequência acústica e configuração interna de emissão/recepção não identificados. | [R2](#r2), seções 4 e 7 |
+| 4.2 | Atuadores: função, fabricante e modelo, quando identificáveis | Laser de mira, LCD com retroiluminação e sinalização sonora de leitura incorreta. O manual versão 03 informa laser de 650 nm e potência < 1 mW; classe 2 na página comercial. Modelos dos componentes e tipo de emissor sonoro não identificados. | [R2](#r2), seções 4 e 8; [R1](#r1) |
+| 4.3 | Conexão de cada sensor/atuador com o MCU/MPU | **Não identificado.** Não há esquema elétrico ou pinagem interna nos manuais consultados. | [R2](#r2), [R8](#r8) |
+
+O HC-SR04 é apenas uma referência para a reprodução: não foi identificado como componente do VTUSD3. Também não se atribuem ao produto comercial os 40 kHz, o par TRIG/ECHO ou a faixa nominal desse módulo.
 
 #### 3.2.5 Interfaces de comunicação com fio
 
 | Item do enunciado | Característica | Descrição no produto | Fonte |
 | --- | --- | --- | --- |
-| 5.1 | Interfaces: I2C, SPI, UART, CAN, USB, Ethernet, RS-485 ou outras | **Não documentado / Não aplicável.** O aparelho é um instrumento autônomo (*stand-alone*) e não possui portas de comunicação de dados externas. | [R2](#r2) |
+| 5.1 | Interfaces: I2C, SPI, UART, CAN, USB, Ethernet, RS-485 ou outras | **Não identificado.** Os manuais descrevem operação local e não documentam portas externas de dados, barramentos internos ou interfaces de manutenção. Isso não comprova ausência dessas interfaces. | [R2](#r2), [R8](#r8) |
+
+O LCD e as teclas não permitem deduzir I2C, SPI ou ligação direta ao controlador. O I2C adotado para o OLED da reprodução é uma decisão do grupo.
 
 #### 3.2.6 Interfaces de comunicação sem fio
 
 | Item do enunciado | Característica | Descrição no produto | Fonte |
 | --- | --- | --- | --- |
-| 6.1 | Tecnologias e padrões sem fio | **Não documentado / Não aplicável.** O produto não possui recursos de conectividade sem fio. | [R2](#r2) |
-| 6.2 | Chips/módulos de rádio e protocolos de aplicação | **Não identificado.** Sem evidência de componentes de radiofrequência. | [R2](#r2) |
+| 6.1 | Tecnologias e padrões sem fio | **Não documentado.** As fontes consultadas não descrevem Wi-Fi, Bluetooth ou outra comunicação de dados sem fio. | [R1](#r1), [R2](#r2), [R8](#r8) |
+| 6.2 | Chips/módulos de rádio e protocolos de aplicação | **Não identificado.** Sem documentação de rádio ou protocolo de aplicação. | [R2](#r2), [R8](#r8) |
+
+A emissão de ultrassom e o apontador laser desempenham sensoriamento e indicação, respectivamente; não evidenciam comunicação de dados entre dispositivos. A capacidade de rádio da placa ESP32 não será utilizada na proposta.
 
 #### 3.2.7 Unidades de entrada/saída (I/O)
 
 | Item do enunciado | Característica | Descrição no produto | Fonte |
 | --- | --- | --- | --- |
-| 7.1 | GPIO: funções de entrada e saída identificadas | Entradas inferidas para a leitura das 10 teclas do painel; saídas inferidas para controle do display, acionamento do laser e emissão do pulso ultrassônico. Pinos não identificados. | [R2](#r2), seção 4 |
-| 7.2 | ADC/DAC: presença, uso e resolução, quando identificáveis | **Não identificado.** | [R2](#r2) |
-| 7.3 | PWM: presença e utilização | **Não identificado.** Uso possível para o aviso sonoro ou excitação do transdutor, mas sem comprovação documental. | [R2](#r2) |
+| 7.1 | GPIO: funções de entrada e saída identificadas | Dez teclas constituem entradas de comandos; LCD, laser e aviso sonoro são saídas funcionais. Pinagem, quantidade de GPIO e organização elétrica não identificadas; não se sabe se há matriz de teclas ou controlador auxiliar. | [R2](#r2), p. 2 e seção 4; [R1](#r1) |
+| 7.2 | ADC/DAC: presença, uso e resolução, quando identificáveis | **Não identificado.** O recebimento de ecos e a indicação de bateria fraca não comprovam uso de ADC/DAC integrado ao controlador. | [R2](#r2), seções 5 e 7 |
+| 7.3 | PWM: presença e utilização | **Não identificado.** Emissão acústica, som e retroiluminação não permitem determinar o circuito de acionamento. | [R2](#r2), [R8](#r8) |
 
 #### 3.2.8 Fonte de energia e sistema de alimentação
 
 | Item do enunciado | Característica | Descrição no produto | Fonte |
 | --- | --- | --- | --- |
-| 8.1 | Fonte de energia, tensão e tipo de bateria/alimentação | Alimentado por uma bateria de 9 V. Consumo de operação < 60 mA, consumo em repouso < 1 µA. | [R2](#r2), seções 4 e 8 |
-| 8.2 | Gerenciamento de energia, PMIC e regulação | **Não identificado.** O circuito regulador de tensão interno não é especificado. | [R2](#r2) |
-| 8.3 | Economia de energia, sleep e wake-up | Desligamento automático: o laser e a retroiluminação desligam após ± 5 s sem uso; o sistema desliga após ± 1 min. Reativação manual pela tecla ON. | [R2](#r2), seções 6.7 e 8 |
-| 8.4 | Backup de energia | **Não identificado.** Não há menção a baterias secundárias. | [R2](#r2) |
-| 8.5 | Reset e watchdog | **Não documentado.** O sistema possui botão de limpeza (ESC/CLEAR), mas reset de hardware ou *watchdog timer* não são descritos. | [R2](#r2), seção 4 |
-| 8.6 | Supervisão de energia e brown-out | Supervisão primária presente através do indicador visual de bateria fraca exibido no visor LCD. | [R2](#r2), seção 4 |
+| 8.1 | Fonte de energia, tensão e tipo de bateria/alimentação | Uma bateria de 9 V; o manual recomenda bateria alcalina nova e declara corrente de operação < 60 mA. Corrente em repouso e autonomia não informadas. | [R2](#r2), seções 5 e 8 |
+| 8.2 | Gerenciamento de energia, PMIC e regulação | **Não identificado.** A tensão da bateria não revela tensões internas, regulador ou PMIC. | [R2](#r2), [R8](#r8) |
+| 8.3 | Economia de energia, sleep e wake-up | Retroiluminação desliga após aproximadamente 5 s; aparelho desliga após cerca de 1 min de inatividade. Ativação pela tecla ON/OFF. Não são descritos modo sleep, corrente de repouso ou temporizador específico do laser. | [R2](#r2), seção 6 |
+| 8.4 | Backup de energia | **Não identificado.** Não há descrição de alimentação de reserva ou bateria secundária. | [R2](#r2), [R8](#r8) |
+| 8.5 | Reset e watchdog | **Não identificado.** ESC/CLEAR limpa leitura/memória, sem comprovar reset de hardware ou watchdog. | [R2](#r2), seção 6 |
+| 8.6 | Supervisão de energia e brown-out | Indicador de bateria fraca documentado. Limiar, circuito de detecção e eventual reset por subtensão (brown-out) não identificados. | [R2](#r2), seção 5 |
+
+Não se adota a corrente de repouso do CEM DM-01 para o VTUSD3. O limite de corrente em operação, sem perfil de uso e capacidade da bateria, também não permite estimar autonomia confiável.
 
 #### 3.2.9 Firmware e atualizações
 
@@ -191,9 +199,9 @@ Não se confunde armazenamento externo ao processador com mídia acessível ao u
 
 | Item do enunciado | Característica | Descrição no produto | Fonte |
 | --- | --- | --- | --- |
-| 12.1 | Displays e indicadores visuais | Visor LCD numérico com retroiluminação (backlight) para exibição de valores, unidades, referências e aviso de bateria fraca. Apontador laser serve como indicador visual de mira. | [R2](#r2), seções 4 e 8; [R7](#r7) |
-| 12.2 | Botões e sensores de toque | Painel com 10 teclas físicas de pressão para controle total do aparelho (ON/OFF, READ, modo, conversões, cálculos e memória). Não possui sensores capacitivos ou de toque. | [R2](#r2), p. 2 e seção 4 |
-| 12.3 | Sinalização sonora e outras interfaces | Emissão de feedback sonoro (bip/alarme) para reportar leituras incorretas (ERROR) ou confirmar ações do teclado. | [R7](#r7) |
+| 12.1 | Displays e indicadores visuais | LCD com retroiluminação para valores e unidades; indicador de bateria fraca. Laser auxilia a mira. Modelo, resolução e interface elétrica do LCD não identificados. | [R2](#r2), seções 4–6; [R1](#r1) |
+| 12.2 | Botões e sensores de toque | Dez teclas de operação identificadas no desenho externo. Tecnologia dos contatos e presença de outros sensores de toque não documentadas. | [R2](#r2), p. 2 e seção 4 |
+| 12.3 | Sinalização sonora e outras interfaces | Função de alarme para leituras incorretas documentada; não se atribui confirmação sonora a todas as teclas. Tipo e acionamento do emissor sonoro não identificados. | [R1](#r1), [R8](#r8) |
 
 #### 3.2.13 Tecnologias críticas
 
@@ -201,8 +209,8 @@ Não se confunde armazenamento externo ao processador com mídia acessível ao u
 | --- | --- | --- |
 | **Transdutor ultrassônico** | A emissão e a recepção acústica são o princípio ativo do aparelho. Sem este componente, é fisicamente impossível obter o tempo do eco que define a distância. | [R1](#r1), [R2](#r2) |
 | **Controlador digital embarcado** | Essencial para cronometrar a diferença de tempo (ToF) do ultrassom na escala de microssegundos, aplicar a fórmula de velocidade, calcular área/volume e atualizar a tela em tempo real. | [R2](#r2), seções 4 a 6 |
-| **Display LCD** | Por ser um sistema isolado (sem comunicação externa com fio ou sem fio), a tela é a única tecnologia capaz de transmitir as informações dimensionais e os códigos de erro processados ao usuário. | [R2](#r2), seção 4 |
-| **Diodo Laser (Classe II)** | Embora não realize a medição matemática, é crítico para a usabilidade. Garante que o usuário consiga alinhar o feixe cônico ultrassônico corretamente no alvo físico, evitando falsos ecos. | [R2](#r2), seção 8 |
+| **Display LCD** | É a interface visual documentada para apresentar medidas, unidades e indicadores. Sua função de apresentação é necessária à operação descrita, mas isso não identifica o controlador ou barramento do LCD. | [R2](#r2), seção 4 |
+| **Diodo Laser (Classe II)** | É um recurso auxiliar de mira, sem participação na medição acústica. O ponto luminoso não garante que o eco venha daquele ponto nem elimina reflexões indesejadas; superfícies e alinhamento continuam sujeitos às restrições do manual. | [R2](#r2), seção 8 |
 
 
 ### 3.3 Proposta de reprodução com ESP32
@@ -251,6 +259,34 @@ O resultado deverá permanecer identificado como **última leitura** até a pró
 Serão necessários uma placa, uma protoboard, um sensor, um botão, um display, um buzzer, cabo USB de dados, jumpers e resistores conforme a ligação. Para os ensaios, utilizar régua ou fita métrica e um alvo plano fixo. Nenhum número de GPIO será definido antes da identificação da placa e de seus pinos reservados.
 
 Como referência de viabilidade, o HC-SR04 documentado em [R3](#r3) usa alimentação de 5 V e sinais de comando/eco. Se esse modelo for disponibilizado, adequar a saída ECHO ao nível admitido pela entrada da ESP32; não ligar um sinal de 5 V diretamente a um GPIO de 3,3 V. Verificar também os resistores de pull-up do OLED e o nível das linhas I2C. O buzzer deverá ter acionamento compatível com a corrente da saída, usando driver quando necessário. O esquema elétrico definitivo depende dessas confirmações.
+
+##### Ligações e montagem propostas
+
+A tabela define conexões por função, sem fixar GPIO antes de conhecer a placa. É uma proposta para **HC-SR04 e OLED I2C, caso esses módulos sejam confirmados**; não representa o circuito comercial. A lista local da disciplina registra sensor ultrassônico, OLED I2C e buzzer ativo, mas não identifica seus modelos.
+
+| Elemento | Ligação proposta | Condição para montar |
+| --- | --- | --- |
+| Placa ESP32 | Alimentação pela porta USB da placa de desenvolvimento | Identificar modelo, pinagem e capacidade das saídas de alimentação; não aplicar 9 V aos GPIO ou ao pino de 3,3 V |
+| GND | Referência comum entre placa, sensor, display e driver do buzzer | Verificar continuidade das barras da protoboard, inclusive eventuais interrupções |
+| HC-SR04: VCC/GND | Fonte de 5 V e GND comum | Usar saída de 5 V da placa somente se documentada e com corrente disponível; o datasheet declara 15 mA para o módulo [R3](#r3) |
+| HC-SR04: TRIG | GPIO de saída → entrada TRIG | Confirmar que o módulo reconhece nível alto de 3,3 V; caso contrário, prever conversão de nível |
+| HC-SR04: ECHO | ECHO → adequação de nível → GPIO de entrada com captura temporal | Dimensionar conversão para os limites do chip real; não presumir tolerância a 5 V [R9](#r9) |
+| Botão | Contato entre GPIO de entrada e GND, com pull-up para 3,3 V | Usar pull-up interno apenas se disponível no pino escolhido; conferir pares de contatos do botão |
+| OLED I2C | SDA/SCL e alimentação conforme datasheet do módulo | Confirmar controlador, endereço e pull-ups; as linhas ligadas diretamente à ESP32 devem respeitar seu domínio lógico |
+| Buzzer ativo | GPIO de saída controla driver compatível com tensão/corrente do buzzer | Identificar se é módulo com driver ou componente avulso; não alimentar carga de corrente desconhecida diretamente pelo GPIO |
+
+**Exemplo de adequação do ECHO.** Para uma saída de 5 V e entrada de 3,3 V, um divisor com 10 kΩ entre ECHO e o nó de leitura e 15 kΩ entre esse nó e GND produz nominalmente `5 × 15 / (10 + 15) = 3,0 V`. É um cálculo de projeto, não uma ligação já validada. Antes do uso, conferir tolerâncias, tensão máxima de saída, limiar de nível alto da entrada e efeito sobre as bordas do pulso; escolher resistores ou conversor apropriados ao módulo e ao chip reais. A referência [R9](#r9) cobre a série ESP32 indicada no documento, não todas as variantes chamadas ESP32.
+
+**Sequência de montagem:**
+
+1. Identificar placa e módulos e registrar seus datasheets. Separar GPIO disponíveis, evitando pinos reservados à memória, inicialização e programação conforme a placa.
+2. Com a alimentação desligada, organizar GND e trilhos de energia; verificar ausência de curto e polaridades. Não conectar a bateria de 9 V do produto comercial ao protótipo.
+3. Ligar a placa por USB e conferir as tensões de alimentação antes de conectar módulos. Desligar novamente para cada alteração nas ligações.
+4. Conectar sensor e adequação do ECHO. Conferir níveis com instrumento disponível antes de ligar o sinal à entrada da placa; validar uma leitura por diagnóstico serial.
+5. Acrescentar botão e OLED e verificar comando e apresentação. Integrar por último o buzzer e seu acionamento, mantendo-o desligado durante a inicialização.
+6. Fixar sensor e alvo, manter o campo acústico desobstruído e executar o plano da seção 3.3.6. Registrar ligações finais e fotografia da montagem quando ela existir.
+
+**Alimentação da reprodução.** A fonte deverá suportar a soma das correntes da placa e dos módulos, com margem conforme seus documentos. Não se estima consumo total ou autonomia antes de identificar e medir os componentes. A proposta inicial usa USB, sem bateria, carregador ou circuito de backup adicionais. Esta montagem ainda não foi executada.
 
 #### 3.3.3 Diagrama conceitual
 
@@ -496,6 +532,10 @@ VELLEMAN. **VTUSD3 — User manual, versão 02 (05 ago. 2014)**. Lista de caract
 ### R8
 
 VELLEMAN. **VTUSD3 — Ultrasonic Distance Meter with Laser Pointer: User Manual**. Documento de 22 páginas disponibilizado pela TEquipment. Disponível em: https://assets.tequipment.net/assets/1/26/Documents/Velleman/VTUSD3/vtusd3_doc_1.pdf. Consulta em: 02 nov. 2026. Fonte complementar para funções e análise das lacunas de documentação interna; não substitui as especificações da versão 03 [R2](#r2). A cópia consultada não foi usada para atribuir modelo de chip, memória, SO ou mecanismos de segurança.
+
+### R9
+
+ESPRESSIF SYSTEMS. **ESP32 Series Datasheet**. Versão 5.3. Seções de pinagem e características elétricas. Disponível em: https://www.espressif.com/sites/default/files/documentation/esp32_datasheet_en.pdf. Consulta em: 02 nov. 2026. Referência condicional para conferir limites de GPIO da série descrita; confirmar datasheet e esquema da placa efetivamente fornecida antes da montagem.
 
 ### P1
 
