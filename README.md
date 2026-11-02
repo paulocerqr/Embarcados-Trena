@@ -121,41 +121,41 @@ Os "5 conjuntos de memória" são resultados armazenáveis, não a capacidade de
 
 | Item do enunciado | Característica | Descrição no produto | Fonte |
 | --- | --- | --- | --- |
-| 4.1 | Sensores: variável, fabricante e modelo, quando identificáveis | [PREENCHER] | [PREENCHER] |
-| 4.2 | Atuadores: função, fabricante e modelo, quando identificáveis | [PREENCHER] | [PREENCHER] |
-| 4.3 | Conexão de cada sensor/atuador com o MCU/MPU | [PREENCHER] | [PREENCHER] |
+| 4.1 | Sensores: variável, fabricante e modelo, quando identificáveis | Transdutor ultrassônico para emissão e recepção do eco. Fabricante e modelo não identificados. | [R1](#r1), [R2](#r2) |
+| 4.2 | Atuadores: função, fabricante e modelo, quando identificáveis | Diodo laser vermelho de 650 nm (apontador classe II, < 1 mW), display LCD e componente sonoro (buzzer) para avisos. Modelos não identificados. | [R2](#r2), seção 8; [R7](#r7) |
+| 4.3 | Conexão de cada sensor/atuador com o MCU/MPU | **Não identificado.** O manual não apresenta diagrama elétrico ou pinagem interna. | [R2](#r2) |
 
 #### 3.2.5 Interfaces de comunicação com fio
 
 | Item do enunciado | Característica | Descrição no produto | Fonte |
 | --- | --- | --- | --- |
-| 5.1 | Interfaces: I2C, SPI, UART, CAN, USB, Ethernet, RS-485 ou outras | [PREENCHER] | [PREENCHER] |
+| 5.1 | Interfaces: I2C, SPI, UART, CAN, USB, Ethernet, RS-485 ou outras | **Não documentado / Não aplicável.** O aparelho é um instrumento autônomo (*stand-alone*) e não possui portas de comunicação de dados externas. | [R2](#r2) |
 
 #### 3.2.6 Interfaces de comunicação sem fio
 
 | Item do enunciado | Característica | Descrição no produto | Fonte |
 | --- | --- | --- | --- |
-| 6.1 | Tecnologias e padrões sem fio | [PREENCHER] | [PREENCHER] |
-| 6.2 | Chips/módulos de rádio e protocolos de aplicação | [PREENCHER] | [PREENCHER] |
+| 6.1 | Tecnologias e padrões sem fio | **Não documentado / Não aplicável.** O produto não possui recursos de conectividade sem fio. | [R2](#r2) |
+| 6.2 | Chips/módulos de rádio e protocolos de aplicação | **Não identificado.** Sem evidência de componentes de radiofrequência. | [R2](#r2) |
 
 #### 3.2.7 Unidades de entrada/saída (I/O)
 
 | Item do enunciado | Característica | Descrição no produto | Fonte |
 | --- | --- | --- | --- |
-| 7.1 | GPIO: funções de entrada e saída identificadas | [PREENCHER] | [PREENCHER] |
-| 7.2 | ADC/DAC: presença, uso e resolução, quando identificáveis | [PREENCHER] | [PREENCHER] |
-| 7.3 | PWM: presença e utilização | [PREENCHER] | [PREENCHER] |
+| 7.1 | GPIO: funções de entrada e saída identificadas | Entradas inferidas para a leitura das 10 teclas do painel; saídas inferidas para controle do display, acionamento do laser e emissão do pulso ultrassônico. Pinos não identificados. | [R2](#r2), seção 4 |
+| 7.2 | ADC/DAC: presença, uso e resolução, quando identificáveis | **Não identificado.** | [R2](#r2) |
+| 7.3 | PWM: presença e utilização | **Não identificado.** Uso possível para o aviso sonoro ou excitação do transdutor, mas sem comprovação documental. | [R2](#r2) |
 
 #### 3.2.8 Fonte de energia e sistema de alimentação
 
 | Item do enunciado | Característica | Descrição no produto | Fonte |
 | --- | --- | --- | --- |
-| 8.1 | Fonte de energia, tensão e tipo de bateria/alimentação | [PREENCHER] | [PREENCHER] |
-| 8.2 | Gerenciamento de energia, PMIC e regulação | [PREENCHER] | [PREENCHER] |
-| 8.3 | Economia de energia, sleep e wake-up | [PREENCHER] | [PREENCHER] |
-| 8.4 | Backup de energia | [PREENCHER] | [PREENCHER] |
-| 8.5 | Reset e watchdog | [PREENCHER] | [PREENCHER] |
-| 8.6 | Supervisão de energia e brown-out | [PREENCHER] | [PREENCHER] |
+| 8.1 | Fonte de energia, tensão e tipo de bateria/alimentação | Alimentado por uma bateria de 9 V. Consumo de operação < 60 mA, consumo em repouso < 1 µA. | [R2](#r2), seções 4 e 8 |
+| 8.2 | Gerenciamento de energia, PMIC e regulação | **Não identificado.** O circuito regulador de tensão interno não é especificado. | [R2](#r2) |
+| 8.3 | Economia de energia, sleep e wake-up | Desligamento automático: o laser e a retroiluminação desligam após ± 5 s sem uso; o sistema desliga após ± 1 min. Reativação manual pela tecla ON. | [R2](#r2), seções 6.7 e 8 |
+| 8.4 | Backup de energia | **Não identificado.** Não há menção a baterias secundárias. | [R2](#r2) |
+| 8.5 | Reset e watchdog | **Não documentado.** O sistema possui botão de limpeza (ESC/CLEAR), mas reset de hardware ou *watchdog timer* não são descritos. | [R2](#r2), seção 4 |
+| 8.6 | Supervisão de energia e brown-out | Supervisão primária presente através do indicador visual de bateria fraca exibido no visor LCD. | [R2](#r2), seção 4 |
 
 #### 3.2.9 Firmware e atualizações
 
@@ -185,17 +185,19 @@ Os "5 conjuntos de memória" são resultados armazenáveis, não a capacidade de
 
 | Item do enunciado | Característica | Descrição no produto | Fonte |
 | --- | --- | --- | --- |
-| 12.1 | Displays e indicadores visuais | [PREENCHER] | [PREENCHER] |
-| 12.2 | Botões e sensores de toque | [PREENCHER] | [PREENCHER] |
-| 12.3 | Sinalização sonora e outras interfaces | [PREENCHER] | [PREENCHER] |
+| 12.1 | Displays e indicadores visuais | Visor LCD numérico com retroiluminação (backlight) para exibição de valores, unidades, referências e aviso de bateria fraca. Apontador laser serve como indicador visual de mira. | [R2](#r2), seções 4 e 8; [R7](#r7) |
+| 12.2 | Botões e sensores de toque | Painel com 10 teclas físicas de pressão para controle total do aparelho (ON/OFF, READ, modo, conversões, cálculos e memória). Não possui sensores capacitivos ou de toque. | [R2](#r2), p. 2 e seção 4 |
+| 12.3 | Sinalização sonora e outras interfaces | Emissão de feedback sonoro (bip/alarme) para reportar leituras incorretas (ERROR) ou confirmar ações do teclado. | [R7](#r7) |
 
 #### 3.2.13 Tecnologias críticas
 
 | Tecnologia | Por que é necessária ao produto | Evidência/fonte |
 | --- | --- | --- |
-| [PREENCHER] | [PREENCHER] | [PREENCHER] |
+| **Transdutor ultrassônico** | A emissão e a recepção acústica são o princípio ativo do aparelho. Sem este componente, é fisicamente impossível obter o tempo do eco que define a distância. | [R1](#r1), [R2](#r2) |
+| **Controlador digital embarcado** | Essencial para cronometrar a diferença de tempo (ToF) do ultrassom na escala de microssegundos, aplicar a fórmula de velocidade, calcular área/volume e atualizar a tela em tempo real. | [R2](#r2), seções 4 a 6 |
+| **Display LCD** | Por ser um sistema isolado (sem comunicação externa com fio ou sem fio), a tela é a única tecnologia capaz de transmitir as informações dimensionais e os códigos de erro processados ao usuário. | [R2](#r2), seção 4 |
+| **Diodo Laser (Classe II)** | Embora não realize a medição matemática, é crítico para a usabilidade. Garante que o usuário consiga alinhar o feixe cônico ultrassônico corretamente no alvo físico, evitando falsos ecos. | [R2](#r2), seção 8 |
 
-[PREENCHER: explicar as tecnologias sem as quais o produto não seria viável, relacionando medição, processamento e apresentação. Distinguir funções essenciais de acessórios.]
 
 ### 3.3 Proposta de reprodução com ESP32
 
