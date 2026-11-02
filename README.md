@@ -2,7 +2,7 @@
 
 **Trabalho 2 — 2026/2**  
 **Produto selecionado:** Velleman VTUSD3, medidor ultrassônico de distância com apontador laser.  
-**Situação:** relatório em elaboração; proposta de reprodução preenchida, demais seções a completar.  
+**Situação:** relatório em revisão; descrição, figuras, comparação com cinco similares e proposta de reprodução redigidas. Permanecem pendências de identificação do grupo, revisão técnica e consolidação bibliográfica.
 **Entrega indicada no enunciado:** 03/11/2026.
 
 > **Nota de edição:** substituir os campos `[PREENCHER]` durante a pesquisa. Para características não identificadas, registrar as fontes consultadas; usar “não se aplica” somente com justificativa. Uma informação da ESP32 não descreve automaticamente o produto comercial.
@@ -35,13 +35,15 @@ A escolha se justifica por quatro pontos principais:
 
 #### 3.1.1 Visão geral e funções principais
 
-O **Velleman VTUSD3** (*Ultrasonic Distance Meter*) é uma trena digital portátil fabricada pela Velleman NV que mede distâncias de 0,50 m a 16 m, com precisão declarada de ±1% + 1 dígito e tempo de resposta de 2 s [R1, R2, seção 8].
+O **Velleman VTUSD3** (*Ultrasonic Distance Meter*) é uma trena digital portátil comercializada pela Velleman que mede distâncias de 0,50 m a 16 m, com precisão declarada de ±1% + 1 dígito e tempo de resposta de 2 s [R1, R2, seção 8].
 
 A medição de distância é feita exclusivamente por ondas ultrassônicas. O laser integrado (Classe 2, 650 nm, < 1 mW) serve apenas como apontador visual para indicar o local mirado. Por isso, o aparelho não consegue medir através de vidros: o laser atravessa a vidraça, mas o som reflete nela [R2, seções 2, 7 e 8].
 
+**Critério de fonte:** adota-se o manual versão 03 [R2](#r2) para as especificações. A página comercial [R1](#r1) informa 670 nm para o laser, enquanto o manual informa 650 nm; também há divergências de dimensões e massa. Sem identificação de revisão de hardware, esses valores não foram combinados nem interpretados como prova de versões diferentes.
+
 Suas funções principais documentadas são [R2, seções 4 e 6]:
 - **Medição de distância (`READ`):** Emite o pulso ultrassônico e exibe a distância até o alvo no visor LCD.
-- **Seleção de referência (`Fm/Bm`):** Alterna a origem da medida entre a parte frontal (`Fm`, onde o usuário está) e a base traseira do aparelho (`Bm`, para medições de parede a parede).
+- **Seleção de referência (`Fm/Bm`):** Alterna a origem da medida entre a parte frontal (`Fm`, referência frontal do aparelho) e a base traseira do aparelho (`Bm`, para medições de parede a parede).
 - **Conversão de unidades (`Ft/M`):** Alterna as leituras entre metros (m, m² e m³) e pés (ft, ft² e ft³).
 - **Cálculo de área e volume:** Calcula automaticamente a área (L x W) ou o volume (L x W x H) de um cômodo a partir de duas ou três medições sequenciais.
 - **Soma de distâncias (`+`):** Acumula várias medições seguidas até o limite de 100 m ou 100 ft.
@@ -50,38 +52,36 @@ Suas funções principais documentadas são [R2, seções 4 e 6]:
   
 #### 3.1.2 Público-alvo, contexto de uso e segmento de mercado
 
-O VTUSD3 pertence ao segmento de **instrumentos portáteis de medição dimensional para uso doméstico, bricolagem (DIY) e serviços prediais leves** [R1, R2].
+Neste estudo, o VTUSD3 é enquadrado no segmento de **instrumentos portáteis de medição dimensional para uso doméstico, bricolagem (DIY) e serviços prediais leves**. Esse enquadramento é uma análise do grupo a partir das funções de distância, área e volume documentadas no manual; não constitui uma classificação comercial explícita do fabricante [R2](#r2).
 
-- **Público-alvo:** Usuários domésticos, técnicos, instaladores e corretores que precisam medir cômodos rapidamente sem depender de outra pessoa para segurar uma trena convencional. O termo de garantia caracteriza o aparelho como produto de consumo (*consumer product*), reduzindo a garantia de 24 para 6 meses em caso de uso profissional intenso [R2, p. 32].
+- **Público-alvo proposto pelo grupo:** Usuários domésticos, técnicos, instaladores e corretores que precisam levantar dimensões de cômodos. Esses perfis são inferidos das funções disponíveis, não uma lista de usuários divulgada pela Velleman. O termo de garantia caracteriza o aparelho como produto de consumo (*consumer product*), reduzindo a garantia de 24 para 6 meses em caso de uso profissional intenso [R2, p. 32].
 - **Contexto de uso e restrições:** Voltado para ambientes internos sob temperaturas de 0°C a 40°C e umidade relativa de 45% a 91%. Como o som sofre influência da temperatura e umidade, o manual recomenda aguardar ± 15 min para o aparelho atingir a temperatura ambiente antes do uso. Exige apontamento em ângulo de 90° contra superfícies planas e largas, apresentando erros em corredores estreitos, sob vento/correntes de ar (acima de 12 m) ou contra materiais que absorvem som, como cortinas [R2, seções 6–8].
-- **Aplicações:** O manual documenta o uso para medição entre paredes e levantamento de área e volume de salas [R2, seção 6]. Na prática, esses dados apoiam o orçamento de pisos, pintura, móveis e climatização.
+- **Aplicações:** O manual documenta o uso para medição entre paredes e levantamento de área e volume de salas [R2, seção 6]. Como possibilidades de uso identificadas pelo grupo, essas dimensões podem apoiar estimativas de piso e pintura e o levantamento geométrico de ambientes. Não substituem verificações específicas de instalação de móveis nem o dimensionamento técnico de climatização.
 
 #### 3.1.3 Fotos, ilustrações e diagramas do produto
 
-Abaixo estão a vista externa oficial do Velleman VTUSD3 e o diagrama de identificação dos seus 15 elementos físicos e de interface [R1, R2, p. 2].
+As duas figuras permitem reconhecer o aparelho e localizar seus controles. A fotografia mostra a vista frontal; a ilustração do manual acrescenta a vista traseira e identifica 15 elementos externos [R1](#r1), [R2](#r2), p. 2.
 
 ![Vista externa do Velleman VTUSD3](assets/vtusd3.jpg)
-*Figura 1 — Vista externa frontal do medidor ultrassônico Velleman VTUSD3. Fonte: Velleman NV [R1].*
+
+*Figura 1 — Vista frontal do VTUSD3: transdutor na extremidade superior, LCD e teclas de operação. Imagem de divulgação da Velleman; referência da página do produto e endereço da imagem oficial em [R1](#r1). Arquivo local: `assets/vtusd3.jpg`.*
 
 ![Identificação externa do Velleman VTUSD3](assets/identificacao.png)
 
 *Figura 2 — Diagrama de identificação dos elementos externos e controles do VTUSD3, baseado na página 2 do manual oficial [R2, p. 2 e seção 4]: (1) Sensor ultrassônico; (2) Laser; (3) LCD; (4) Modo Frontal/Base; (5) Conversão Pés/Metros; (6) Tecla READ; (7) Medição de área; (8) Medição de volume; (9) ESC/CLEAR; (10) Soma; (11) STORE; (12) RECALL; (13) Tecla ON/OFF; (14) Clipe de cinto; (15) Tampa da bateria.*
 
-| Figura prevista | Conteúdo | Fonte e identificação |
-| --- | --- | --- |
-| 1 | Vista externa do VTUSD3 | [PREENCHER] |
-| 2 | Interface e elementos do produto | [PREENCHER] |
-| 3, se disponível | Vista interna/placa | [PREENCHER] |
+As figuras documentam somente o exterior. Não foi incluída fotografia de placa interna porque não foi identificada uma imagem com procedência verificável nas fontes utilizadas nesta seção. A identificação de circuitos internos permanece na análise técnica da seção 3.2; a aparência do gabinete não comprova modelos de componentes.
 
 #### 3.1.4 Tecnologias de comunicação e controle embarcadas
 
-O VTUSD3 funciona como um sistema embarcado autônomo (*stand-alone*), operando apenas com aquisição e interface locais, sem portas de dados com fio ou conectividade sem fio [R1, R2].
+A operação descrita pelo fabricante é local: o usuário seleciona funções nas teclas e consulta as medidas no LCD. O manual não documenta interfaces externas de dados nem recursos de comunicação sem fio; isso não comprova a inexistência de barramentos ou interfaces internos [R2](#r2).
 
-O controle interno executa quatro tarefas principais [R2, seções 4, 6 e 8]:
-1. **Leitura de comandos:** Monitora as 10 teclas frontais, diferenciando cliques simples de pressionamento longo 3 s em `ESC/CLEAR`).
-2. **Disparo e aquisição:** Ao pressionar `READ`, aciona o apontador laser e emite o pulso ultrassônico, aguardando o retorno do eco dentro do tempo de resposta de 2 s.
-3. **Processamento:** Converte o tempo de eco em distância, aplica a compensação do gabinete se estiver no modo `Bm`, realiza os cálculos de soma, área ou volume e valida a leitura (exibindo `ERROR` se o sinal for inválido).
-4. **Saída visual e gestão de energia:** Controla os segmentos do visor LCD e gerencia os temporizadores de desligamento automático da luz de fundo ± 5 s e do sistema (± 1 min), mantendo o consumo abaixo de 60 mA na bateria de 9 V.
+As funções documentadas permitem descrever o seguinte fluxo de controle, sem identificar a implementação do firmware comercial [R2](#r2), seções 4–8:
+
+1. **Entrada:** o usuário escolhe referência, unidade e operação nas teclas; `READ` solicita uma medição.
+2. **Aquisição:** o aparelho mede por ultrassom; o laser auxilia a mira. O tempo de resposta declarado é 2 s, não o tempo de voo do eco nem um limite de captura confirmado.
+3. **Processamento funcional:** o aparelho apresenta distância e permite somar medidas, calcular área/volume e armazenar ou recuperar resultados. A organização do código e os periféricos internos não são divulgados.
+4. **Saída e economia de energia:** o resultado é apresentado no LCD. A retroiluminação desliga após aproximadamente 5 s e o aparelho após cerca de 1 min de inatividade.
 
 ### 3.2 Análise técnica detalhada: listagem de características
 
@@ -451,7 +451,7 @@ Essas quantidades descrevem **leituras armazenadas ou apresentadas**, não capac
 
 **Proximidade funcional.** VTUSD2 e CEM DM-01 se aproximam do VTUSD3 pela medição ultrassônica e pelas funções dimensionais locais. A semelhança entre VTUSD3 e CEM não comprova placa, firmware ou fabricante original comuns. O Stanley tem menor alcance máximo declarado e seu manual caracteriza o instrumento como estimador para interiores, recomendando outras soluções para exigências maiores. [R2](#r2), [P1](#p1), [P2](#p2), [P3](#p3).
 
-**Diferença tecnológica.** As versões documentadas de Bosch e Extech declaram alcances máximos maiores e erros típicos/básicos expressos em milímetros. Essa comparação de especificações não demonstra superioridade universal de qualquer produto a laser. O código completo do Bosch evita misturar variantes. O **DT100M** comparado é a laser e não deve ser confundido com o antigo **DT100**, ultrassônico. [P4](#p4), [P5](#p5).
+**Diferença tecnológica.** As versões documentadas de Bosch e Extech declaram alcances máximos maiores e erros típicos/básicos expressos em milímetros. Essa comparação de especificações não demonstra superioridade universal de qualquer produto a laser: as faixas e os erros dependem das condições declaradas por cada fabricante. O código completo do Bosch evita misturar variantes. O **DT100M** comparado é a laser e não deve ser confundido com o antigo **DT100**, ultrassônico. [P4](#p4), [P5](#p5).
 
 **Decisão de projeto.** A reprodução com ESP32 manterá botão, aquisição ultrassônica, display e aviso sonoro. Área/volume, memória persistente, apontador laser e desempenho comercial ficam fora do escopo mínimo da seção 3.3. Alcance e erro serão avaliados na montagem real, sem herdar as especificações desses produtos.
 
@@ -461,7 +461,7 @@ Listar aqui todas as fontes efetivamente utilizadas, inclusive as das imagens, c
 
 ### R1
 
-VELLEMAN. **VTUSD3: Ultrasonic Distance Meter + Laser**. Disponível em: https://www.velleman.eu/products/view/ultrasonic-distance-meter-laser-vtusd3/?id=372828&lang=en. Consulta em: 01 nov. 2026. **Observação:** nessa data a página redirecionou para o aviso de indisponibilidade da loja Velleman; as especificações do produto foram conferidas no manual [R2](#r2) e em páginas de distribuidores. A referência é mantida para registro da página oficial, mas não deve ser usada sozinha como fonte de características técnicas.
+VELLEMAN. **VTUSD3: Ultrasonic Distance Meter + Laser**. Disponível em: https://www.velleman.eu/products/view/ultrasonic-distance-meter-laser-vtusd3/?id=372828&lang=en. Conteúdo consultado pela ferramenta de pesquisa em: 02 nov. 2026. Fotografia de divulgação vinculada pela página: https://cdn.velleman.eu/images/products/1/small/vtusd3.jpg (o download direto não foi validado nesta revisão). A consulta anterior, em 01 nov., havia encontrado redirecionamento para aviso de indisponibilidade. Há divergências de comprimento de onda, dimensões e massa em relação ao manual versão 03; para especificações, este relatório prioriza [R2](#r2).
 
 ### R2
 
@@ -497,7 +497,7 @@ STANLEY. **0-77-018 IntelliMeasure Ultrasonic Estimator — User Manual**. Espec
 
 ### P3
 
-CEM. **DM-01 — Ultrasonic Digital Distance Meter**. Ficha técnica de uma página, portal CEM Instruments India. Disponível em: https://www.cem-instruments.in/pdf/DM-01.pdf. Consulta documental em: 31 out. 2026. Notação de exatidão com termo adicional não definido explicitamente, conforme registrado no comparativo.
+CEM. **DM-01 — Ultrasonic Digital Distance Meter**. Ficha técnica de uma página, portal CEM Instruments India. Disponível em: https://www.cem-instruments.in/pdf/DM-01.pdf. Consulta documental em: 31 out. 2026; conferência em: 02 nov. 2026. Notação de exatidão com termo adicional não definido explicitamente, conforme registrado no comparativo.
 
 ### P4
 
@@ -516,7 +516,7 @@ As referências acadêmicas completas T1–T4 e A1–A4 estão no [arquivo bibli
 ## Checklist de revisão antes da entrega
 
 - [ ] Preencher identificação dos quatro integrantes.
-- [ ] Completar descrição, fotos e fontes do produto.
+- [x] Redigir descrição, contextualizar aplicações e incluir foto e ilustração externa com referências.
 - [ ] Cobrir todos os subitens das 12 categorias técnicas.
 - [ ] Justificar informações não identificadas ou não aplicáveis.
 - [ ] Destacar tecnologias críticas.
