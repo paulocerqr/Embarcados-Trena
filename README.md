@@ -35,11 +35,26 @@ A escolha se justifica por quatro pontos principais:
 
 #### 3.1.1 Visão geral e funções principais
 
-[PREENCHER: fabricante, modelo exato e funções, com referências junto às afirmações. Distinguir medição ultrassônica de apontamento laser. Fontes iniciais: [R1](#r1) e [R2](#r2).]
+O **Velleman VTUSD3** (*Ultrasonic Distance Meter*) é uma trena digital portátil fabricada pela Velleman NV que mede distâncias de 0,50 m a 16 m, com precisão declarada de ±1% + 1 dígito e tempo de resposta de 2 s [R1, R2, seção 8].
 
+A medição de distância é feita exclusivamente por ondas ultrassônicas. O laser integrado (Classe 2, 650 nm, < 1 mW) serve apenas como apontador visual para indicar o local mirado. Por isso, o aparelho não consegue medir através de vidros: o laser atravessa a vidraça, mas o som reflete nela [R2, seções 2, 7 e 8].
+
+Suas funções principais documentadas são [R2, seções 4 e 6]:
+- **Medição de distância (`READ`):** Emite o pulso ultrassônico e exibe a distância até o alvo no visor LCD.
+- **Seleção de referência (`Fm/Bm`):** Alterna a origem da medida entre a parte frontal (`Fm`, onde o usuário está) e a base traseira do aparelho (`Bm`, para medições de parede a parede).
+- **Conversão de unidades (`Ft/M`):** Alterna as leituras entre metros (m, m² e m³) e pés (ft, ft² e ft³).
+- **Cálculo de área e volume:** Calcula automaticamente a área (L x W) ou o volume (L x W x H) de um cômodo a partir de duas ou três medições sequenciais.
+- **Soma de distâncias (`+`):** Acumula várias medições seguidas até o limite de 100 m ou 100 ft.
+- **Memória (`STORE` / `RECALL` / `ESC/CLEAR`):** Armazena até 5 conjuntos de medidas. Um toque curto em `ESC/CLEAR` limpa a tela; manter pressionado por 3 s apaga toda a memória.
+- **Economia de energia:** Desliga a luz de fundo do visor após ± 5 s e o aparelho após ± 1 min de inatividade.
+  
 #### 3.1.2 Público-alvo, contexto de uso e segmento de mercado
 
-[PREENCHER: quem utiliza, onde utiliza, aplicações e posição na categoria de instrumentos de medição. Citar fontes e distinguir aplicações documentadas de possibilidades propostas pelo grupo.]
+O VTUSD3 pertence ao segmento de **instrumentos portáteis de medição dimensional para uso doméstico, bricolagem (DIY) e serviços prediais leves** [R1, R2].
+
+- **Público-alvo:** Usuários domésticos, técnicos, instaladores e corretores que precisam medir cômodos rapidamente sem depender de outra pessoa para segurar uma trena convencional. O termo de garantia caracteriza o aparelho como produto de consumo (*consumer product*), reduzindo a garantia de 24 para 6 meses em caso de uso profissional intenso [R2, p. 32].
+- **Contexto de uso e restrições:** Voltado para ambientes internos sob temperaturas de 0°C a 40°C e umidade relativa de 45% a 91%. Como o som sofre influência da temperatura e umidade, o manual recomenda aguardar ± 15 min para o aparelho atingir a temperatura ambiente antes do uso. Exige apontamento em ângulo de 90° contra superfícies planas e largas, apresentando erros em corredores estreitos, sob vento/correntes de ar (acima de 12 m) ou contra materiais que absorvem som, como cortinas [R2, seções 6–8].
+- **Aplicações:** O manual documenta o uso para medição entre paredes e levantamento de área e volume de salas [R2, seção 6]. Na prática, esses dados apoiam o orçamento de pisos, pintura, móveis e climatização.
 
 #### 3.1.3 Fotos, ilustrações e diagramas do produto
 
