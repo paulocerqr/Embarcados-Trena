@@ -45,10 +45,10 @@ A escolha se justifica por quatro pontos principais:
 
 Abaixo estão a vista externa oficial do Velleman VTUSD3 e o diagrama de identificação dos seus 15 elementos físicos e de interface [R1, R2, p. 2].
 
-![Vista externa do Velleman VTUSD3](XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX)
+![Vista externa do Velleman VTUSD3](https://cdn.velleman.eu/images/products/0/vtusd3.jpg)
 *Figura 1 — Vista externa frontal do medidor ultrassônico Velleman VTUSD3. Fonte: Velleman NV [R1].*
 
-![Identificação externa do Velleman VTUSD3](https://cdn.velleman.eu/images/products/0/vtusd3.jpg)
+![Identificação externa do Velleman VTUSD3](assets/identificacao.png)
 *Figura 2 — Diagrama de identificação dos elementos externos e controles do VTUSD3, baseado na página 2 do manual oficial [R2, p. 2 e seção 4]: (1) Sensor ultrassônico; (2) Laser; (3) LCD; (4) Modo Frontal/Base; (5) Conversão Pés/Metros; (6) Tecla READ; (7) Medição de área; (8) Medição de volume; (9) ESC/CLEAR; (10) Soma; (11) STORE; (12) RECALL; (13) Tecla ON/OFF; (14) Clipe de cinto; (15) Tampa da bateria.*
 
 | Figura prevista | Conteúdo | Fonte e identificação |
