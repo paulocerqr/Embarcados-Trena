@@ -48,6 +48,8 @@ Abaixo estão a vista externa oficial do Velleman VTUSD3 e o diagrama de identif
 ![Vista externa do Velleman VTUSD3](XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX)
 *Figura 1 — Vista externa frontal do medidor ultrassônico Velleman VTUSD3. Fonte: Velleman NV [R1].*
 
+![Identificação externa do Velleman VTUSD3](https://cdn.velleman.eu/images/products/0/vtusd3.jpg)
+*Figura 2 — Diagrama de identificação dos elementos externos e controles do VTUSD3, baseado na página 2 do manual oficial [R2, p. 2 e seção 4]: (1) Sensor ultrassônico; (2) Laser; (3) LCD; (4) Modo Frontal/Base; (5) Conversão Pés/Metros; (6) Tecla READ; (7) Medição de área; (8) Medição de volume; (9) ESC/CLEAR; (10) Soma; (11) STORE; (12) RECALL; (13) Tecla ON/OFF; (14) Clipe de cinto; (15) Tampa da bateria.*
 
 | Figura prevista | Conteúdo | Fonte e identificação |
 | --- | --- | --- |
@@ -57,7 +59,13 @@ Abaixo estão a vista externa oficial do Velleman VTUSD3 e o diagrama de identif
 
 #### 3.1.4 Tecnologias de comunicação e controle embarcadas
 
-[PREENCHER: como o produto adquire, processa e apresenta a medição. Informar interfaces documentadas; não presumir protocolos internos, conectividade ou sistema operacional.]
+O VTUSD3 funciona como um sistema embarcado autônomo (*stand-alone*), operando apenas com aquisição e interface locais, sem portas de dados com fio ou conectividade sem fio [R1, R2].
+
+O controle interno executa quatro tarefas principais [R2, seções 4, 6 e 8]:
+1. **Leitura de comandos:** Monitora as 10 teclas frontais, diferenciando cliques simples de pressionamento longo 3 s em `ESC/CLEAR`).
+2. **Disparo e aquisição:** Ao pressionar `READ`, aciona o apontador laser e emite o pulso ultrassônico, aguardando o retorno do eco dentro do tempo de resposta de 2 s.
+3. **Processamento:** Converte o tempo de eco em distância, aplica a compensação do gabinete se estiver no modo `Bm`, realiza os cálculos de soma, área ou volume e valida a leitura (exibindo `ERROR` se o sinal for inválido).
+4. **Saída visual e gestão de energia:** Controla os segmentos do visor LCD e gerencia os temporizadores de desligamento automático da luz de fundo ± 5 s e do sistema (± 1 min), mantendo o consumo abaixo de 60 mA na bateria de 9 V.
 
 ### 3.2 Análise técnica detalhada: listagem de características
 
