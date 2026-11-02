@@ -18,13 +18,16 @@
 
 ## 1. Objetivos
 
-[PREENCHER: objetivo do estudo do VTUSD3, análise de seu hardware/software e proposta de reprodução parcial com ESP32. Explicar o que o grupo pretende compreender e qual função será reproduzida.]
-
+Este trabalho tem como objetivo realizar um estudo teórico do medidor de distância Velleman VTUSD3, identificando suas principais funções e a sua arquitetura de hardware e software. A partir dessa análise, propõe-se um modelo conceitual para a reprodução parcial do dispositivo utilizando um microcontrolador ESP32 e um sensor ultrassônico. O foco acadêmico é implementar o cálculo de distância por tempo de eco acústico sob solicitação do usuário, validar os dados em interface visual e sonora, e aplicar conceitos de temporização, controle de portas GPIO e desenvolvimento de firmware.
 ## 2. Seleção do sistema embarcado
 
-[PREENCHER: justificar a escolha do produto comercial, seu enquadramento como sistema embarcado com sensores e atuadores, a disponibilidade de documentação e a viabilidade para o grupo.]
+O **Velleman VTUSD3** foi escolhido por ser um sistema embarcado dedicado de instrumentação que integra sensoriamento acústico, atuação óptica/visual e processamento digital em um dispositivo portátil [R1, R2]. 
 
-**Recorte previsto:** medição de distância por ultrassom sob comando de um botão, resultado em display e sinalização sonora. Detalhar e justificar na seção 3.3.
+A escolha se justifica por quatro pontos principais:
+* **Documentação acessível:** O manual oficial detalha todas as funções, modos de operação, especificações técnicas e limitações físicas do aparelho [R2].
+* **Compatibilidade com o laboratório:** O núcleo funcional do produto pode ser reproduzido com a ESP32 e módulos básicos da lista da disciplina (sensor ultrassônico, botão, display OLED I²C e buzzer ativo).
+* **Viabilidade para o grupo:** A arquitetura modular viabiliza a prototipagem em protoboard aplicando técnicas de laboratório, permitindo que a equipe desenvolva o projeto integralmente sem equipamentos comerciais e concentre os esforços na integração de hardware e na precisão do firmware.
+* **Escopo bem definido:** Permite estudar na prática leitura de sensores, captura temporizada em microssegundos, comunicação I²C e tratamento de erros de medição.
 
 ## 3. Estudo do produto e proposta
 
@@ -40,7 +43,11 @@
 
 #### 3.1.3 Fotos, ilustrações e diagramas do produto
 
-[PREENCHER: inserir foto do VTUSD3 com legenda, autoria/origem e link. Acrescentar vista interna ou placa quando houver fonte verificável do modelo exato; se não encontrada, registrar essa limitação.]
+Abaixo estão a vista externa oficial do Velleman VTUSD3 e o diagrama de identificação dos seus 15 elementos físicos e de interface [R1, R2, p. 2].
+
+![Vista externa do Velleman VTUSD3](XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX)
+*Figura 1 — Vista externa frontal do medidor ultrassônico Velleman VTUSD3. Fonte: Velleman NV [R1].*
+
 
 | Figura prevista | Conteúdo | Fonte e identificação |
 | --- | --- | --- |
