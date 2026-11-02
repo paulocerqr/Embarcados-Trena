@@ -18,13 +18,16 @@
 
 ## 1. Objetivos
 
-[PREENCHER: objetivo do estudo do VTUSD3, análise de seu hardware/software e proposta de reprodução parcial com ESP32. Explicar o que o grupo pretende compreender e qual função será reproduzida.]
-
+Este trabalho tem como objetivo realizar um estudo teórico do medidor de distância Velleman VTUSD3, identificando suas principais funções e a sua arquitetura de hardware e software. A partir dessa análise, propõe-se um modelo conceitual para a reprodução parcial do dispositivo utilizando um microcontrolador ESP32 e um sensor ultrassônico. O foco acadêmico é implementar o cálculo de distância por tempo de eco acústico sob solicitação do usuário, validar os dados em interface visual e sonora, e aplicar conceitos de temporização, controle de portas GPIO e desenvolvimento de firmware.
 ## 2. Seleção do sistema embarcado
 
-[PREENCHER: justificar a escolha do produto comercial, seu enquadramento como sistema embarcado com sensores e atuadores, a disponibilidade de documentação e a viabilidade para o grupo.]
+O **Velleman VTUSD3** foi escolhido por ser um sistema embarcado dedicado de instrumentação que integra sensoriamento acústico, atuação óptica/visual e processamento digital em um dispositivo portátil [R1, R2]. 
 
-**Recorte previsto:** medição de distância por ultrassom sob comando de um botão, resultado em display e sinalização sonora. Detalhar e justificar na seção 3.3.
+A escolha se justifica por quatro pontos principais:
+* **Documentação acessível:** O manual oficial detalha todas as funções, modos de operação, especificações técnicas e limitações físicas do aparelho [R2].
+* **Compatibilidade com o laboratório:** O núcleo funcional do produto pode ser reproduzido com a ESP32 e módulos básicos da lista da disciplina (sensor ultrassônico, botão, display OLED I²C e buzzer ativo).
+* **Viabilidade para o grupo:** A arquitetura modular viabiliza a prototipagem em protoboard aplicando técnicas de laboratório, permitindo que a equipe desenvolva o projeto integralmente sem equipamentos comerciais e concentre os esforços na integração de hardware e na precisão do firmware.
+* **Escopo bem definido:** Permite estudar na prática leitura de sensores, captura temporizada em microssegundos, comunicação I²C e tratamento de erros de medição.
 
 ## 3. Estudo do produto e proposta
 
@@ -40,7 +43,14 @@
 
 #### 3.1.3 Fotos, ilustrações e diagramas do produto
 
-[PREENCHER: inserir foto do VTUSD3 com legenda, autoria/origem e link. Acrescentar vista interna ou placa quando houver fonte verificável do modelo exato; se não encontrada, registrar essa limitação.]
+Abaixo estão a vista externa oficial do Velleman VTUSD3 e o diagrama de identificação dos seus 15 elementos físicos e de interface [R1, R2, p. 2].
+
+![Vista externa do Velleman VTUSD3](assets/vtusd3.jpg)
+*Figura 1 — Vista externa frontal do medidor ultrassônico Velleman VTUSD3. Fonte: Velleman NV [R1].*
+
+![Identificação externa do Velleman VTUSD3](assets/identificacao.png)
+
+*Figura 2 — Diagrama de identificação dos elementos externos e controles do VTUSD3, baseado na página 2 do manual oficial [R2, p. 2 e seção 4]: (1) Sensor ultrassônico; (2) Laser; (3) LCD; (4) Modo Frontal/Base; (5) Conversão Pés/Metros; (6) Tecla READ; (7) Medição de área; (8) Medição de volume; (9) ESC/CLEAR; (10) Soma; (11) STORE; (12) RECALL; (13) Tecla ON/OFF; (14) Clipe de cinto; (15) Tampa da bateria.*
 
 | Figura prevista | Conteúdo | Fonte e identificação |
 | --- | --- | --- |
@@ -50,7 +60,13 @@
 
 #### 3.1.4 Tecnologias de comunicação e controle embarcadas
 
-[PREENCHER: como o produto adquire, processa e apresenta a medição. Informar interfaces documentadas; não presumir protocolos internos, conectividade ou sistema operacional.]
+O VTUSD3 funciona como um sistema embarcado autônomo (*stand-alone*), operando apenas com aquisição e interface locais, sem portas de dados com fio ou conectividade sem fio [R1, R2].
+
+O controle interno executa quatro tarefas principais [R2, seções 4, 6 e 8]:
+1. **Leitura de comandos:** Monitora as 10 teclas frontais, diferenciando cliques simples de pressionamento longo 3 s em `ESC/CLEAR`).
+2. **Disparo e aquisição:** Ao pressionar `READ`, aciona o apontador laser e emite o pulso ultrassônico, aguardando o retorno do eco dentro do tempo de resposta de 2 s.
+3. **Processamento:** Converte o tempo de eco em distância, aplica a compensação do gabinete se estiver no modo `Bm`, realiza os cálculos de soma, área ou volume e valida a leitura (exibindo `ERROR` se o sinal for inválido).
+4. **Saída visual e gestão de energia:** Controla os segmentos do visor LCD e gerencia os temporizadores de desligamento automático da luz de fundo ± 5 s e do sistema (± 1 min), mantendo o consumo abaixo de 60 mA na bateria de 9 V.
 
 ### 3.2 Análise técnica detalhada: listagem de características
 
